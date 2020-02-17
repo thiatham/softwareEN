@@ -1,0 +1,18 @@
+/**
+ * @author: ระบุชื่อ-นามสกุลของคุณที่นี่
+ * @phone: ระบุชหมายเลขโทรศัพท์สะดวกติดต่อ
+ * @email: ระบุชอีเมลสะดวกติดต่อ
+ */
+
+// Page Layout
+@import './header';
+@import './footer';
+
+// Moves page content below header bar
+#main-wrapper {
+  padding-top: 55px;
+}
+
+#content-wrapper {
+  padding-bottom: 30px;
+}

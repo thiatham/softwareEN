@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: "Helvethaica";
+    src: url("../../fonts/Helvethaica/DB-Helvethaica-X-Li.otf")format("otf"),
+    url("../../fonts/Helvethaica/DB-Helvethaica-X-Li.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "ThaiSans Neue";
+    src: url("../../fonts/ThaiSans Neue v1.0/OpenType CFF/ThaiSansNeue-Light.otf") format("otf"),
+    url("../../fonts/ThaiSans Neue v1.0/TrueType/ThaiSansNeue-Light.ttf") format("truetype");
+    font-size: 21px;
+}
+
+
+
+@font-face {
+    font-family: "Helvetica Regular";
+    font-weight: 300;
+    src: url("../../fonts/Helvethaica/DB_HelvethaicaMon_X_v3.2_4.otf") format("otf"),
+    url("../../fonts/Helvethaica/DB_HelvethaicaMon_X_v3.2_4.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Helvetica Medium";
+    font-weight: 500;
+    src: url("../../fonts/Helvethaica/DB_HelvethaicaMon_X_Med_v3.2_4.otf") format("otf"),
+    url("../../fonts/Helvethaica/DB_HelvethaicaMon_X_Med_v3.2_4.ttf") format("truetype");
+}
+
+
+@font-face {
+    font-family: "Helvetica Bd";
+    font-weight: bold;
+    src: url("../../fonts/Helvethaica/DB_HelvethaicaMon_X_Bd_v3.2_4.otf") format("otf"),
+    url("../../fonts/Helvethaica/DB_HelvethaicaMon_X_Bd_v3.2_4.ttf") format("truetype");
+}
+
+
+.font-bold{
+    font-family: "Helvetica Bd",sans-serif!important;
+}
+.font-100{
+    font-family: "Helvethaica",sans-serif!important;
+}
+
+.font-300{
+    font-family: "Helvetica Regular",sans-serif!important;
+}
+
+.font-500{
+    font-family: "Helvetica Medium",sans-serif!important;
+}
+

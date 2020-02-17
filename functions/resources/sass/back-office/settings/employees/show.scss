@@ -1,0 +1,268 @@
+/**
+ * @author: Nuttasak Munhadee
+ * @phone: 095-826-0044
+ * @email: m.nuttasuk@gmail.com
+ */
+
+.first-trimas-color {
+    background: rgb(37,58,118);
+    background: linear-gradient(135deg, rgba(37,58,118,1) 0%, rgba(28,91,128,1) 80%);
+}
+
+.second-trimas-color {
+    background: rgb(44,59,151);
+    background: linear-gradient(135deg, rgba(44,59,151,1) 0%, rgba(38,106,165,1) 80%);
+}
+
+.thrid-trimas-color {
+    background: rgb(9,95,101);
+    background: linear-gradient(135deg, rgba(9,95,101,1) 0%, rgba(6,127,112,1) 80%);
+}
+
+.emp-show-breadcrumb {
+    font-size:2rem;
+    background-color:transparent;
+    padding-left:0px;
+    padding-bottom:0px;
+    padding-right:0px;
+}
+
+.layout-personal-card {
+    height:100%;
+    width:100%;
+    border-radius: 0px 5px 5px 0px;             
+    -webkit-box-shadow: 0px 3px 15px -3px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 3px 15px -3px rgba(0,0,0,0.5);
+    box-shadow: 0px 3px 15px -3px rgba(0,0,0,0.5);
+
+    .detail-picture::after {
+        content: "";
+        // background-image: url("/images/section-4.png");
+        background-image: url("/images/back-office/settings/employees/employee-bg.png");
+        opacity: 0.5;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        background-position: right bottom; /*Positioning*/
+        background-repeat: no-repeat; /*Prevent showing multiple background images*/
+        background-size: 70% 70%;
+        z-index: -1;   
+    }
+    
+    .pic{
+        background-color:#efefef;
+        position: relative; 
+        width: 100%;
+        // height: 325px;
+        height: 420px;
+
+        .name-pic{
+            position: absolute;
+            bottom: 8px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height:38px;
+            width: 80%;
+            text-align:center;
+            background-color:rgb(231,231,231,0.8);
+            border-radius: 5px;          
+            -webkit-box-shadow: 3px 3px 15px -3px rgba(255,255,255,0.8);
+            -moz-box-shadow: 3px 3px 15px -3px rgba(255,255,255,0.8);
+            box-shadow: 3px 3px 15px -3px rgba(255,255,255,0.8);  
+        }
+    }
+    .detail {
+        padding-top:100px;
+
+        .selectpicker{
+            border-left-width: 0px;
+            border-top-width: 0px;
+            border-right-width: 0px;
+            border-color:#33b5e5!important;
+            font-size:24px;
+            height:32px;
+            display: inline-block;
+            background-color:transparent;
+            
+            padding-right:20px;
+            padding-left:5px;
+            
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image:
+                linear-gradient(45deg, transparent 50%, #33b5e5 50%),
+                linear-gradient(135deg, #33b5e5 50%, transparent 50%),
+                linear-gradient(to right, #33b5e5, #33b5e5);
+            background-position:
+                calc(100% - 10px) 15px,
+                calc(100% - 5px) 15px,
+                100% 0;
+
+            background-size:
+                5px 5px,
+                5px 5px,
+                0em 0em;
+            background-repeat: no-repeat;
+        }
+    }
+}
+
+
+.monthly-container{
+    padding-left:40px;
+    padding-right:40px;
+}
+
+.salary-per-month-card {
+    margin-top:16px;
+    margin-bottom:10px;
+
+    border-radius: 8px 5px 5px 8px;
+    -webkit-box-shadow: 0px 3px 15px -3px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 3px 15px -3px rgba(0,0,0,0.5);
+    box-shadow: 0px 3px 15px -3px rgba(0,0,0,0.5);
+
+    .layout-per-month-card {
+        height:150px;
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 8px 0px 0px 8px;
+        }
+    }
+    
+    .layout-detail{
+        padding-top:16px;
+        padding-bottom:0px;
+        .text-networth{
+            color:#7d7d7d;
+            margin-bottom:0px;
+            margin-top:5px;
+        }
+        .val-networth {
+            margin-bottom:0px;
+            margin-top:5px;
+        }
+        .under-line {
+            // border-bottom: 1px solid #efefef;
+            border-bottom: 1px solid #D7D7D8;
+            width:100%;
+            height:1px;
+        }
+        .text-social{
+            color:#7d7d7d;
+            margin-bottom:0px;
+            margin-top:0px;
+        }
+        .val-social {
+            margin-bottom:0px;
+            margin-top:0px;
+            color:#ef5350;
+        }
+        .text-tax{
+            color:#7d7d7d;
+            margin-bottom:0px;
+        }
+        .val-tax{
+            margin-bottom:0px;
+            color:#ef5350
+        }
+    }
+    
+}
+
+.header-salary-per-month{
+    border-bottom: 2px solid #c9c9c9;
+
+}
+
+// media q
+@media screen and (max-width: 500px) {
+    .layout-per-month-card {
+        height:120px !important;
+    }
+
+    .layout-detail{
+        p {
+            font-size:17px;
+        }
+    }
+}
+
+@media screen and (max-width: 575px){
+    .detail {
+        padding-top:20px !important;
+        padding-bottom:10px !important;
+    }
+    .pic {
+        height: 472px !important;
+    }
+
+    .layout-per-month-card {
+        height:120px;
+    }
+    .layout-detail{
+        padding-top:19px;
+    }
+    .monthly-container{
+        padding-left:0px;
+        padding-right: 0px;
+    }
+    .emp-show-breadcrumb{
+        font-size:1.2rem;
+    }
+    .header-salary-per-month{
+        font-size:1.2rem;
+    }
+
+    #app{
+        padding-left:24px;
+        padding-right:24px;
+    }
+}
+
+@media screen and (max-width:991px){
+    .detail{
+        padding-top:30px !important;
+    }
+    .pic {
+        height: 275px !important;
+    }
+}
+
+
+@media screen and (max-width: 767px) {
+    .detail {
+        padding-top:35px !important;
+        h4{
+            font-size:17px;
+        }
+        .selectpicker{
+            font-size:17px !important;
+            padding-right:20px  !important;
+            height:23px !important;
+            background-position:
+                calc(100% - 10px) 10px,
+                calc(100% - 5px) 10px,
+                100% 0 !important;
+        }
+    }
+
+    .pic {
+        height: 225px !important;
+    }
+}
+
+
+
+// @media screen and (max-width: 370px){
+//     .pic {
+//         height: 325px !important;
+//     }
+// }

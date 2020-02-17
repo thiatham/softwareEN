@@ -1,0 +1,25 @@
+// Variables
+@import 'fonts';
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+// @import 'calendar';
+// @import 'floating-labels';
+// @import 'fonts';
+// @import 'leaflet-js';
+// @import 'owl-carousel-slider';
+// @import 'sweet-alert';
+// @import 'toastr';
+// @import 'typeahead';
+
+
+html {
+    position: relative;
+}
+
+// Prevent page from showing before CSS loads
+body {
+    display: inline-block !important;
+}

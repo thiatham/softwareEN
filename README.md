@@ -1,4 +1,4 @@
-﻿<a href="www.21tek.com"><img src="https://rundawa.com/imageedit_20_2702059961.png" alt="Logo" width="80px"></a>
+﻿<a href="https://21tek.com/"><img src="https://21tek.com/images/logo.png" alt="Logo" width="80px"></a>
 
 ทีมงานของบริษัททราบดีกว่า settings ในเครื่อง localhost ของ developer อาจมีบางอย่างที่ไม่เหมือนกับบน server ทำให้เกิดปัญหา "ใช้งานได้ในเครื่อง แต่ใช้บนเซิร์ฟเวอร์ไม่ได้" ทำให้การส่งงานอาจล่าช้าไป
 
@@ -11,8 +11,15 @@
 - เปิดเซร์ฟเวอร์จำลอง ใช้คำสั่ง `firebase serve` เมื่อ firebase_hostting ใน index.js เป็น true
 - ปิดเซิร์ฟเวอร์จำลอง โดยกดปุ่ม `Ctrl + C` (หรือ `Cmd + c` หากคุณทำงานบน macOS)
 
-เปิดดูงานผ่าน browser ที่ URL (http://localhost) หรืออาจจะ (http://localhost:5000)
+เปิดดูงานผ่าน browser ที่ URL (http://localhost:8888/{name})
 
 # การเเก้ไขงาน
-- หากจะทำการเเก้ไขให้เเก้ไขให้เเก้ไขเฉพาะในไฟล์ C:xxxx/{project-name}/resources เท่านั้น
-- หากมีการสร้างไฟล์ scss ใหม่ หรือ js ให้อัฟเดต webpack.mix ด้วย 
+- หากจะทำการเเก้ไขให้เเก้ไขให้เเก้ไขเฉพาะในไฟล์ C:xxxx/{project-name}/functions/public/ ที่มีชื่อตัวเองเท่านั้น
+
+# การเพิ่มงานลง git สามารถ push ลง master ได้เลย 
+- ไปที่ไฟล์ index.js ตรวจสอบว่าบรรทัดที่ 8 ตัวเเปร firebase_hostting เป็น false หรือยัง
+- ใช้คำสั่ง`git add .` => `git commit -m '{message}' .` => `git push`
+
+# การ Deploy Project ทำได้โดย
+- ไปที่ไฟล์ index.js ตรวจสอบว่าบรรทัดที่ 8 ตัวเเปร firebase_hostting เป็น true
+- ใช้คำสั่ง `firebase deploy`

@@ -1,0 +1,151 @@
+/**
+ * @author: เธียรธรรม กงทอง
+ * @phone: 095-8635784
+ * @email: thiatham_k@kkumail.com
+ */
+
+#main-wrapper {
+  padding-top: 0px;
+}
+
+#content-wrapper {
+  padding-bottom: 0px !important;
+}
+
+.bannerTitle{
+  position: relative;
+  min-height: 735px;
+  height: 735px;
+}
+h1 {
+  font-size: 5.25em;
+}
+.section {
+  margin: 50px 0px 50px 0px;
+}
+.bg-filter{
+  height: 100%;
+  width: 100%;
+  background-size: cover !important;
+  position: absolute;
+}
+.group-banner{
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+.group-title{
+  position: absolute;
+  z-index: 9;
+  top: 52%;
+  transform: translate(50%);
+  transform: translate(-0%, -50%);
+  .bg {
+    -webkit-box-shadow: 0px 2px 33px 0px rgba(209,209,209,1);
+    -moz-box-shadow: 0px 2px 33px 0px rgba(209,209,209,1);
+    box-shadow: 0px 2px 33px 0px rgb(224, 224, 224);
+    background: #ffffff4f;
+    border-radius: 5px;
+    margin-left: -7%;
+    .text {
+      margin-left: 7%;
+      margin-right: 7%;
+      padding-top: 5%;
+      padding-bottom: 5%;
+    }
+  }
+
+  p {
+    font-size: 1.6em !important;
+  }
+}
+.main-container {
+
+  background-size: cover !important;
+}
+.section {
+  p.a-link a {
+    display: block;
+    text-decoration: none;
+    width: -moz-fit-content;
+    width: -webkit-fit-content;
+    width: fit-content;
+    &:hover{
+      text-decoration: none;
+    }
+  }
+}
+.main-container  p {
+  font-size: 1.6em;
+}
+
+ul.list {
+  padding: 0;
+  li {
+    list-style: none;
+    font-size: 1.6em;
+    text-indent: 40px;
+    &::before {
+      content: '-';
+    }
+  }
+}
+
+.link-content {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+
+@media(max-width: 991px) {
+  body{
+    font-size: 0.8rem !important;
+  }
+  .group-banner{
+    padding: 15px 4%;
+    background-position: center;
+  }
+  .group-title{
+    margin: auto !important;
+    position: relative;
+    transform: none;
+    padding-top: 80px;
+    padding-bottom: 20px;
+
+    .bg {
+      margin-left: 0 !important;
+      .text {
+        margin-left: 5%;
+        margin-right: 5%;
+      }
+    }
+  }
+
+  ul.list {
+    li {
+      text-indent: 30px;
+    }
+  }
+
+  .link-content {
+    padding-top: 90px;
+    margin-top: -90px;
+  }
+
+  .bannerTitle{
+    min-height: auto;
+    height: auto;
+  }
+}
+
+@media(max-width: 369px) {
+  .group-title{
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .mini-col {
+    flex: 0 0 91.6666666667% !important;
+    max-width: 91.6666666667% !important;
+  }
+}
+
+

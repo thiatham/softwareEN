@@ -1,0 +1,79 @@
+// Floating Labels
+.form-group {
+    position: relative;
+}
+
+.form-group>label {
+    position: absolute;
+    top: 0.75em;
+    display: block;
+    color: $gray-500;
+    margin-bottom: 0; /* Override default `<label>` margin */
+    pointer-events: none;
+    cursor: text;
+    border: 0px; /* Match the input under the label */
+    transition: all .15s ease-in-out;
+}
+
+.form-group input,
+input.form-control {
+    padding-top: 0.75em;
+    border-top: 0px;
+    border-right: 0px;
+    border-left: 0px;
+}
+
+.form-group input::-webkit-input-placeholder {
+    color: transparent;
+}
+
+.form-group input:-ms-input-placeholder {
+    color: transparent;
+}
+
+.form-group input::-ms-input-placeholder {
+    color: transparent;
+}
+
+.form-group input::-moz-placeholder {
+    color: transparent;
+}
+
+.form-group input::placeholder {
+    color: transparent;
+}
+
+input.form-control:focus~label,
+input.form-control:active~label,
+.form-group input:not(:placeholder-shown)~label {
+    top: -0.30em;
+}
+
+input.form-control:focus~label,
+input.form-control:active~label {
+    color: $primary;
+}
+
+/* Fallback for Edge
+-------------------------------------------------- */
+@supports (-ms-ime-align: auto) {
+    .form-group>label {
+        display: none;
+    }
+
+    .form-group input::-ms-input-placeholder {
+        color: #777;
+    }
+}
+
+/* Fallback for IE
+-------------------------------------------------- */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .form-group>label {
+        display: none;
+    }
+
+    .form-group input:-ms-input-placeholder {
+        color: #777;
+    }
+}
