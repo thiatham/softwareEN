@@ -2,7 +2,58 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="255d7ef6-9095-45c2-9f56-e23a9cc65009" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/functions/views/forgot-password.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/functions/views/none.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/functions/views/register.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/public/css/nan.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/public/css/nort.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/public/css/tawan.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/public/css/totakun.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/public/css/waw.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/public/css/yong.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/public/images/Cover_picture.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/public/images/Google-Plus-Icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/public/images/back-office/settings/employees/employee-bg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/public/images/back-office/settings/employees/month/icon_01_Jan.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/public/images/back-office/settings/employees/month/icon_02_Feb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/public/images/back-office/settings/employees/month/icon_03_Mar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/public/images/back-office/settings/employees/month/icon_04_Apr.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/public/images/back-office/settings/employees/month/icon_05_May.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/public/images/back-office/settings/employees/month/icon_06_Jun.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/public/images/back-office/settings/employees/month/icon_07_Jul.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/public/images/back-office/settings/employees/month/icon_08_Aug.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/public/images/back-office/settings/employees/month/icon_09_Sep.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/public/images/back-office/settings/employees/month/icon_10_Oct.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/public/images/back-office/settings/employees/month/icon_11_Nov.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/public/images/back-office/settings/employees/month/icon_12_Dec.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/public/images/banner.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/public/images/bg-fish.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/public/images/bg-table.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/public/images/facebook-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/public/images/favicon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/public/images/line-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/public/images/profile-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/public/images/profile-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/public/images/profile-3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/public/images/section-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/public/images/section-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/public/images/section-3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/public/images/section-4-mobie.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/public/images/section-4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/public/images/section-5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/public/images/section-6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/public/images/section-7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/public/images/shadow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/public/images/smith.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/public/images/thumbnail.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/views/nan.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/views/nort.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/views/tawan.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/views/totakun.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/views/waw.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/views/yong.ejs" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,24 +67,24 @@
     </execution>
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="277">
-                <caret line="22" column="29" lean-forward="true" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
+              <first_editor relative-caret-position="418">
+                <caret line="22" column="29" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
               </first_editor>
               <second_editor />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/functions/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="12" column="22" lean-forward="true" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+            <state relative-caret-position="95">
+              <caret line="41" column="29" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="29" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -41,11 +92,61 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/functions/views/login.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="101">
+              <caret line="16" column="90" selection-start-line="16" selection-start-column="90" selection-end-line="16" selection-end-column="90" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/functions/views/loading.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="76">
+              <caret line="14" column="7" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/functions/public/css/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="10622" column="23" lean-forward="true" selection-start-line="10622" selection-start-column="23" selection-end-line="10622" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/functions/ExtoJson.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/functions/views/dashboard.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="209">
+              <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>tawan</find>
+      <find>AmiPreOrder</find>
+      <find>http</find>
     </findStrings>
     <replaceStrings>
       <replace>nan</replace>
@@ -62,7 +163,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/functions/package.json" />
-        <option value="$PROJECT_DIR$/functions/index.js" />
         <option value="$PROJECT_DIR$/functions/views/tawan.ejs" />
         <option value="$PROJECT_DIR$/functions/views/nort.ejs" />
         <option value="$PROJECT_DIR$/functions/views/nan.ejs" />
@@ -70,16 +170,13 @@
         <option value="$PROJECT_DIR$/functions/views/waw.ejs" />
         <option value="$PROJECT_DIR$/functions/views/yong.ejs" />
         <option value="$PROJECT_DIR$/README.md" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectConfigurationFiles">
-    <option name="files">
-      <list>
-        <option value="$PROJECT_DIR$/.idea/SE.iml" />
-        <option value="$PROJECT_DIR$/.idea/misc.xml" />
-        <option value="$PROJECT_DIR$/.idea/modules.xml" />
-        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
+        <option value="$PROJECT_DIR$/functions/views/dasbord.ejs" />
+        <option value="$PROJECT_DIR$/functions/views/dashboard.ejs" />
+        <option value="$PROJECT_DIR$/functions/index.js" />
+        <option value="$PROJECT_DIR$/functions/views/loading.ejs" />
+        <option value="$PROJECT_DIR$/functions/views/login.ejs" />
+        <option value="$PROJECT_DIR$/functions/public/css/style.css" />
+        <option value="$PROJECT_DIR$/functions/ExtoJson.js" />
       </list>
     </option>
   </component>
@@ -93,7 +190,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -106,24 +202,26 @@
               <item name="SE" type="462c0819:PsiDirectoryNode" />
               <item name="functions" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="SE" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SE" type="462c0819:PsiDirectoryNode" />
-              <item name="functions" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/functions/views" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\taa\Desktop\SE\functions\views" />
+      <recent name="C:\Users\taa\Desktop\SE\functions\public\css" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -147,25 +245,22 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1581860054660</updated>
-      <workItem from="1581860058757" duration="3054000" />
+      <workItem from="1581860058757" duration="3118000" />
+      <workItem from="1581924273830" duration="93000" />
+      <workItem from="1582290142908" duration="2899000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3054000" />
+    <option name="totallyTimeSpent" value="6110000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="706" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25809062" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.32984293" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -173,19 +268,22 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Database" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32984293" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/functions/view/tawan.ejs">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/functions/view/tawan.ejs" />
     <entry file="file://$PROJECT_DIR$/functions/views/tawan.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
@@ -238,8 +336,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="277">
-            <caret line="22" column="29" lean-forward="true" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
+          <first_editor relative-caret-position="418">
+            <caret line="22" column="29" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
           </first_editor>
           <second_editor />
         </state>
@@ -247,11 +345,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/functions/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="22" lean-forward="true" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+        <state relative-caret-position="95">
+          <caret line="41" column="29" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="29" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/functions/views/loading.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="14" column="7" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/functions/views/login.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="16" column="90" selection-start-line="16" selection-start-column="90" selection-end-line="16" selection-end-column="90" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/functions/views/none.ejs">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/functions/public/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="10622" column="23" lean-forward="true" selection-start-line="10622" selection-start-column="23" selection-end-line="10622" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/functions/ExtoJson.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/functions/views/dashboard.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
         </state>
       </provider>
     </entry>

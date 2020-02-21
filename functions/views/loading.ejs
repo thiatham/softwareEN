@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>SE PROJECT</title>
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito|Kanit|Itim" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <script src="vendor/jquery/jquery.min.js"></script>
+</head>
+
+<body id="page-top" class="bg-gradient-primary">
+  <div id="data-extract">
+    <div id="loadingDiv">
+      <div class="loader">Loading...</div>
+    </div>
+  </div>
+  <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+  <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+  <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyD5lToEVtwirdcaJ3HgroQPDSW0rUYWcDA",
+      authDomain: "sfen-e5e15.firebaseapp.com",
+      databaseURL: "https://sfen-e5e15.firebaseio.com",
+      projectId: "sfen-e5e15",
+      storageBucket: "sfen-e5e15.appspot.com",
+      messagingSenderId: "599979222689",
+      appId: "1:599979222689:web:66a3e2bb2c7299ecc132e0",
+      measurementId: "G-EBBG26B0VK"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    var auth = firebase.auth();
+
+    function resetpass() {
+      var emailAddress = $('#reset-password').val();
+      if (emailAddress != undefined || emailAddress != "") {
+        auth.sendPasswordResetEmail(emailAddress).then(function () {
+          $('#alert-respose').html('<div class="alert alert-success" role="alert"> <strong><i class="fas fa-exclamation-circle"></i> เเจ้งเตือน: </strong> ส่งลิงค์รีเซ็ตเเล้ว กรุณาเช็คอีเมลล์ </div><hr>');
+          $('#reset-password').removeClass('is-invalid').addClass('is-valid');
+        }).catch(function (error) {
+          errorcode = error.code;
+          if (error.code === 'auth/user-not-found') {
+            $('#alert-respose').html('<div class="alert alert-warning" role="alert"> <strong><i class="fas fa-exclamation-circle"></i> เเจ้งเตือน: </strong> ไม่มีอีเมลล์นี้อยู่ใรระบบ </div><hr>');
+            $('#reset-password').addClass('is-invalid').removeClass('is-valid');
+          }
+
+        });
+
+      }
+
+
+    }
+    function loginEmail() {
+      var userEmail = document.getElementById("email_field").value;
+      var userPass = document.getElementById("password_field").value;
+      firebase.auth().languageCode = 'th';
+      firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function (error) {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        console.log(errorCode);
+        if (errorCode === "auth/too-many-requests") {
+          $('#alert-respose').html('<div class="alert alert-warning" role="alert"> <strong><i class="fas fa-exclamation-circle"></i> เเจ้งเตือน: </strong> คุณพิมพ์ผิดหลายครั้งเกินไป กรุณารอเเละลองใหม่อีกครั้ง </div><hr>');
+        }
+        if (errorCode === "auth/wrong-password") {
+          $('#alert-respose').html('<div class="alert alert-danger" role="alert"> <strong><i class="fas fa-exclamation-circle"></i> เเจ้งเตือน: </strong> คุณกรอกรหัสผ่านไม่ถูกต้อง </div><hr>');
+          $('#password_field').addClass('is-invalid');
+        }
+        if (errorCode === "auth/user-not-found") {
+          $('#alert-respose').html('<div class="alert alert-danger" role="alert"> <strong><i class="fas fa-exclamation-circle"></i> เเจ้งเตือน: </strong> ไม่มีชื่อผู้ใช้ในระบบ </div><hr>');
+          $('#email_field').addClass('is-invalid');
+          $('#password_field').removeClass('is-invalid');
+        }
+
+
+      });
+    }
+    function logout() {
+      firebase.auth().signOut();
+      sessionStorage.removeItem('tokenID');
+    }
+
+    function setTokenID(value, expirationInMin = 59) {
+      let expirationDate = new Date(new Date().getTime() + (60000 * expirationInMin))
+      let newValue = {
+        value: value,
+        expirationDate: expirationDate.toISOString()
+      }
+      sessionStorage.setItem('tokenID', JSON.stringify(newValue))
+    }
+
+    function getTokenID() {
+      let stringValue = sessionStorage.getItem('tokenID');
+      if (stringValue !== null) {
+        let value = JSON.parse(stringValue);
+        let expirationDate = new Date(value.expirationDate);
+        if (expirationDate > new Date()) {
+          return value.value
+        } else {
+          sessionStorage.removeItem('tokenID');
+        }
+      }
+      try {
+        firebase.auth().currentUser.getIdToken(true).then(function (idToken) {
+          setTokenID(idToken);
+          return idToken;
+        }).catch(function (error) {
+          return null
+        });
+      } catch (e) {
+        return null
+      }
+
+    }
+
+    function LoadPage(value) {
+      var pagePresent = value.typedata
+      $.ajax({
+        type: "POST",
+        url: "/GetPages",
+        data: jQuery.extend({ idtoken: getTokenID() }, value),
+        success: function (response) {
+          $('#data-extract').html(response);
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+          console.log(textStatus, errorThrown);
+        }
+      });
+      if (getTokenID() != null) {
+        if (pagePresent == 'register' || pagePresent == 'login' || pagePresent == 'forgot') {
+          LoadPage({ typedata: 'dashboard' });
+        }
+      }
+    }
+    firebase.auth().onAuthStateChanged(function (user) {
+      if(user != null) {
+        setTokenID(user._lat);
+        LoadPage({ typedata: 'dashboard' });
+      } else {
+        LoadPage({ typedata: 'login' });
+      }
+    });
+  </script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+</body>
+
+</html>

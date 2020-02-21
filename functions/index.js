@@ -28,39 +28,27 @@ app.use(bodyParser.urlencoded({
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
-app.get('/nan', apiLimiter, (req, res) => {
+app.get('/', apiLimiter, (req, res) => {
     rb = req.body;
-	res.render("nan");
+	res.render("loading");
 });
-
-app.get('/nort', apiLimiter, (req, res) => {
+app.post('/GetPages', apiLimiter, (req, res) => {
     rb = req.body;
-	res.render("nort");
+    switch (rb.typedata) {
+        case 'dashboard':
+            res.render("dashboard");
+            break;
+        case 'login':
+            res.render("login");
+            break;
+        case 'register':
+            res.render("register");
+            break;
+        case 'forgot':
+            res.render("forgot-password");
+            break;
+    }
 });
-
-app.get('/tawan', apiLimiter, (req, res) => {
-    rb = req.body;
-	res.render("tawan");
-});
-
-app.get('/totakun', apiLimiter, (req, res) => {
-    rb = req.body;
-	res.render("totakun");
-});
-
-app.get('/waw', apiLimiter, (req, res) => {
-    rb = req.body;
-	res.render("waw");
-});
-
-app.get('/yong', apiLimiter, (req, res) => {
-    rb = req.body;
-	res.render("yong");
-});
-
-
-
-
 
 app.get('*', (req, res) => {
     res.status(404).send("หาหน้าไม่เจอ รอเพิ่มหน้า 404")
