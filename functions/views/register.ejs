@@ -1,0 +1,170 @@
+<div class="vertical-center">
+  <div class="container">
+    <div style="border-radius: 20px;" class="card o-hidden border-0 shadow-lg my-5">
+      <div class="card-body p-0">
+        <!-- Nested Row within Card Body -->
+        <div class="row">
+          <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+          <div class="col-lg-7">
+            <div class="p-5">
+              <div class="text-center">
+                <h1 class="h3 text-gray-900 mb-4">สมัครสมาชิค</h1>
+              </div>
+              <form class="user" action="javascript:void(0)" onsubmit="register_new()">
+                <div class="form-group row">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                    <input type="text" class="form-control form-control-user" id="name-resgister" placeholder="ชื่อ" autocomplete="off">
+                  </div>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control form-control-user" id="nick-resgister" placeholder="นามสกุล" autocomplete="off">
+                  </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                        <input type="email" class="form-control form-control-user" id="email-resgister" placeholder="อีเมลล์" autocomplete="off">
+                    </div>
+                    <div class="col-sm-6">
+                        <input maxlength="12" type="text" class="form-control form-control-user" id="phone-resgister" placeholder="เบอร์โทร" autocomplete="off">
+                    </div>
+                  </div>
+                <div class="form-group row">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                    <input type="password" class="form-control form-control-user" id="pass-resgister" placeholder="รหัสผ่าน" autocomplete="off">
+                  </div>
+                  <div class="col-sm-6">
+                    <input type="password" class="form-control form-control-user" id="repass-resgister" placeholder="รหัสผ่านอีกครั้ง" autocomplete="off">
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control form-control-user" id="line-resgister" placeholder="Line ID" autocomplete="off" required>
+                  </div>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control form-control-user" id="nickname-resgister" placeholder="ชื่อเล่น" autocomplete="off" required>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-12">
+                    <input type="text" class="form-control form-control-user" id="shop-resgister" placeholder="ชื่อร้านค้า" autocomplete="off" required>
+                  </div>
+                </div>
+                <div class="ml-5 custom-control-lg form-group row custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="customCheck" name="example1" required>
+                  <label class="custom-control-label" for="customCheck">ฉันยอมรับเงื่อนไข
+                    <a class="text-primary" data-toggle="modal" data-target="#exampleModal">
+                      ดูรายละเอียดเงื่อนไข
+                    </a>
+                  </label>
+                </div>
+                <span id="alert-respose"></span>
+                <button class="btn btn-primary btn-user btn-block">
+                  สมัครสมาชิค
+                </button>
+              </form>
+              <hr>
+              <div class="text-center">
+                <a class="small" href="#" onclick="LoadPage({typedata:'forgot'})"><b>ลืมรหัสผ่าน</b></a>
+              </div>
+              <div class="text-center">
+                <a class="small" href="#" onclick="LoadPage({typedata:'login'})"><b>คุณเป็นสมาชิคอยู่เเล้ว? เข้าสู่ระบบ!</b></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">เงื่อนไข</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <h5>ก่อนมาเริ่ม  pre order กัน มี่มีเงื่อนไขเล็กน้อยจ้า ✅✅✅</h5>
+        <p>1. สินค้าราคาส่ง สำหรับพ่อค้าแม่ค้า ที่ "มียอดทุกเดือน"  ยอดมากน้อยไม่เป็นไรค่ะ</p>
+        <p>2. สินค้าที่สั่งจอง สามารถโอนเงินได้ตั้งแต่ เริ่มสั่งจอง จนถึงสินค้าเข้าไทย(10-20วัน)</p>
+        <p>3. ช่วงที่มีสินค้าปริมาณมากขออนุญาต จัดส่งตามยอดโอนก่อนตามลำดับนะคะ</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">ปิดหน้าต่าง</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script>
+      function clearinput() {
+          $('#name-resgister').removeClass('is-invalid').removeClass('is-valid');
+          $('#nick-resgister').removeClass('is-invalid').removeClass('is-valid');
+          $('#email-resgister').removeClass('is-invalid').removeClass('is-valid');
+          $('#phone-resgister').removeClass('is-invalid').removeClass('is-valid');
+          $('#pass-resgister').removeClass('is-invalid').removeClass('is-valid');
+          $('#repass-resgister').removeClass('is-invalid').removeClass('is-valid');
+          $('#line-resgister').removeClass('is-invalid').removeClass('is-valid');
+          $('#nickname-resgister').removeClass('is-invalid').removeClass('is-valid');
+          $('#shop-resgister').removeClass('is-invalid').removeClass('is-valid');
+      }
+    function register_new() {
+        if($('#pass-resgister').val() != $('#repass-resgister').val()){
+            $('#alert-respose').html('<div class="alert alert-danger" role="alert"> <strong><i class="fas fa-exclamation-circle"></i> เเจ้งเตือน: </strong> รหัสผ่านไม่ตรงกัน </div><hr>');
+            clearinput();
+            $('#pass-resgister').addClass('is-invalid');
+            $('#repass-resgister').addClass('is-invalid');
+        }
+        else if($('#line-resgister').val() == "" || $('#line-resgister').val() == null){
+          $('#alert-respose').html('<div class="alert alert-danger" role="alert"> <strong><i class="fas fa-exclamation-circle"></i> เเจ้งเตือน: </strong> กรุณาเพิ่ม Line ID</div><hr>');
+          $('#line-resgister').addClass('is-invalid');
+        } else if($('#nick-resgister').val() == "" || $('#nick-resgister').val() == null){
+          $('#alert-respose').html('<div class="alert alert-danger" role="alert"> <strong><i class="fas fa-exclamation-circle"></i> เเจ้งเตือน: </strong> กรุณาเพิ่ม ชื่อเล่น</div><hr>');
+          $('#nick-resgister').addClass('is-invalid');
+        } else if($('#shop-resgister').val() == "" || $('#shop-resgister').val() == null){
+          $('#alert-respose').html('<div class="alert alert-danger" role="alert"> <strong><i class="fas fa-exclamation-circle"></i> เเจ้งเตือน: </strong> กรุณาเพิ่ม ชื่อร้าน</div><hr>');
+          $('#shop-resgister').addClass('is-invalid');
+        } else {
+            exdata = {typedata:'createNewUser',email:$('#email-resgister').val(),
+                phoneNumber:( $('#phone-resgister').val()[0] == "0"? $('#phone-resgister').val().replace('0','+66'):$('#phone-resgister').val()),password:$('#pass-resgister').val(),
+                displayName:$('#name-resgister').val() + " "+ $('#nick-resgister').val() +":.:.:"+ $('#line-resgister').val() +":.:.:"+ $('#nickname-resgister').val() +":.:.:"+ $('#shop-resgister').val()};
+            $.ajax({
+                type: "POST",
+                url: "/membersAPI",
+                data: exdata,
+                success: function (response) {
+                    clearinput();
+                    if(response.repost == true){
+                        $('#alert-respose').html('<div class="alert alert-success" role="alert"> <strong><i class="fas fa-exclamation-circle"></i> เเจ้งเตือน: </strong> สมัครสมาชิคสำเร็จ กำลังกลับไปหน้าเเรก...</div><hr>');
+                        setTimeout(function(){ window.open("/","_self") }, 2000);
+                    }
+                    else if(response.repost.code == 'auth/invalid-phone-number'){
+                        $('#alert-respose').html('<div class="alert alert-danger" role="alert"> <strong><i class="fas fa-exclamation-circle"></i> เเจ้งเตือน: </strong> เบอร์โทรไม่ถูกต้อง</div><hr>');
+                        $('#phone-resgister').addClass('is-invalid');
+                    }
+                    else if(response.repost.code == 'auth/phone-number-already-exists'){
+                        $('#alert-respose').html('<div class="alert alert-danger" role="alert"> <strong><i class="fas fa-exclamation-circle"></i> เเจ้งเตือน: </strong> เบอร์นี้ถูกใช้งานเเล้ว</div><hr>');
+                        $('#phone-resgister').addClass('is-invalid');
+                    }
+                    else if(response.repost.code == 'auth/email-already-exists'){
+                        $('#alert-respose').html('<div class="alert alert-danger" role="alert"> <strong><i class="fas fa-exclamation-circle"></i> เเจ้งเตือน: </strong> อีเมลล์นี้ถูกใช้งานเเล้ว</div><hr>');
+                        $('#email-resgister').addClass('is-invalid');
+                    } else if(response.repost.code == 'auth/invalid-password'){
+                        $('#alert-respose').html('<div class="alert alert-danger" role="alert"> <strong><i class="fas fa-exclamation-circle"></i> เเจ้งเตือน: </strong> รหัสผ่านต้องมากกว่า 6 ตัวอักษร </div><hr>');
+                    }
+
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.log(textStatus, errorThrown);
+                }
+            });
+        }
+    }
+  </script>
