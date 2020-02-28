@@ -1,0 +1,26 @@
+{
+  "name": "package",
+  "version": "1.0.0",
+  "description": "<a href=\"https://21tek.com/\"><img src=\"https://21tek.com/images/logo.png\" alt=\"Logo\" width=\"80px\"></a>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thiatham/softwareEN.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thiatham/softwareEN/issues"
+  },
+  "homepage": "https://github.com/thiatham/softwareEN#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "vue": "^2.6.11"
+  }
+}
