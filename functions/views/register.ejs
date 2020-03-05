@@ -36,19 +36,6 @@
                   </div>
 
                 </div>
-                <div class="form-group row">
-                  <div class="col-sm-6">
-                    <input type="text" class="form-control form-control-user" id="line-resgister" placeholder="Line ID" autocomplete="off" required>
-                  </div>
-                  <div class="col-sm-6">
-                    <input type="text" class="form-control form-control-user" id="nickname-resgister" placeholder="ชื่อเล่น" autocomplete="off" required>
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <div class="col-sm-12">
-                    <input type="text" class="form-control form-control-user" id="shop-resgister" placeholder="ชื่อร้านค้า" autocomplete="off" required>
-                  </div>
-                </div>
                 <div class="ml-5 custom-control-lg form-group row custom-checkbox">
                   <input type="checkbox" class="custom-control-input" id="customCheck" name="example1" required>
                   <label class="custom-control-label" for="customCheck">ฉันยอมรับเงื่อนไข
@@ -88,10 +75,8 @@
         </button>
       </div>
       <div class="modal-body">
-       <h5>ก่อนมาเริ่ม  pre order กัน มี่มีเงื่อนไขเล็กน้อยจ้า ✅✅✅</h5>
-        <p>1. สินค้าราคาส่ง สำหรับพ่อค้าแม่ค้า ที่ "มียอดทุกเดือน"  ยอดมากน้อยไม่เป็นไรค่ะ</p>
-        <p>2. สินค้าที่สั่งจอง สามารถโอนเงินได้ตั้งแต่ เริ่มสั่งจอง จนถึงสินค้าเข้าไทย(10-20วัน)</p>
-        <p>3. ช่วงที่มีสินค้าปริมาณมากขออนุญาต จัดส่งตามยอดโอนก่อนตามลำดับนะคะ</p>
+       <h5>fffffffffffffffffffffffffffff</h5>
+        <p>fffff231241423131312312331312</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">ปิดหน้าต่าง</button>
@@ -106,14 +91,12 @@
   <script>
       function clearinput() {
           $('#name-resgister').removeClass('is-invalid').removeClass('is-valid');
-          $('#nick-resgister').removeClass('is-invalid').removeClass('is-valid');
+
           $('#email-resgister').removeClass('is-invalid').removeClass('is-valid');
           $('#phone-resgister').removeClass('is-invalid').removeClass('is-valid');
           $('#pass-resgister').removeClass('is-invalid').removeClass('is-valid');
           $('#repass-resgister').removeClass('is-invalid').removeClass('is-valid');
-          $('#line-resgister').removeClass('is-invalid').removeClass('is-valid');
-          $('#nickname-resgister').removeClass('is-invalid').removeClass('is-valid');
-          $('#shop-resgister').removeClass('is-invalid').removeClass('is-valid');
+
       }
     function register_new() {
         if($('#pass-resgister').val() != $('#repass-resgister').val()){
@@ -121,20 +104,13 @@
             clearinput();
             $('#pass-resgister').addClass('is-invalid');
             $('#repass-resgister').addClass('is-invalid');
-        }
-        else if($('#line-resgister').val() == "" || $('#line-resgister').val() == null){
-          $('#alert-respose').html('<div class="alert alert-danger" role="alert"> <strong><i class="fas fa-exclamation-circle"></i> เเจ้งเตือน: </strong> กรุณาเพิ่ม Line ID</div><hr>');
-          $('#line-resgister').addClass('is-invalid');
         } else if($('#nick-resgister').val() == "" || $('#nick-resgister').val() == null){
           $('#alert-respose').html('<div class="alert alert-danger" role="alert"> <strong><i class="fas fa-exclamation-circle"></i> เเจ้งเตือน: </strong> กรุณาเพิ่ม ชื่อเล่น</div><hr>');
           $('#nick-resgister').addClass('is-invalid');
-        } else if($('#shop-resgister').val() == "" || $('#shop-resgister').val() == null){
-          $('#alert-respose').html('<div class="alert alert-danger" role="alert"> <strong><i class="fas fa-exclamation-circle"></i> เเจ้งเตือน: </strong> กรุณาเพิ่ม ชื่อร้าน</div><hr>');
-          $('#shop-resgister').addClass('is-invalid');
         } else {
             exdata = {typedata:'createNewUser',email:$('#email-resgister').val(),
                 phoneNumber:( $('#phone-resgister').val()[0] == "0"? $('#phone-resgister').val().replace('0','+66'):$('#phone-resgister').val()),password:$('#pass-resgister').val(),
-                displayName:$('#name-resgister').val() + " "+ $('#nick-resgister').val() +":.:.:"+ $('#line-resgister').val() +":.:.:"+ $('#nickname-resgister').val() +":.:.:"+ $('#shop-resgister').val()};
+                displayName:$('#name-resgister').val() + " "+ $('#nick-resgister').val()};
             $.ajax({
                 type: "POST",
                 url: "/membersAPI",

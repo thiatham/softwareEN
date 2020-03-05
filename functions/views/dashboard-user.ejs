@@ -1,0 +1,194 @@
+
+
+<body id="page-top">
+
+<!-- INDEX-ADMIN -->
+<div id="wrapper">
+    <%- include('widgets/leftmenu-user.ejs')%>
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <%- include('widgets/topbar.ejs')%>
+            <!-- Begin Page Content -->
+            <div id="mainBody" class="container-fluid">
+                <h1>สถานะ User ครับ</h1>
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- End of Main Content -->
+
+        <%- include('widgets/footer.ejs')%>
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+</div>
+<!-- End of Page Wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+<script>
+    clickState = true;
+
+    function loadingPage() {
+        $('#mainBody').html('<div id="loadingDiv"><div class="loader2">Loading...</div></div>');
+    }
+
+    function connectNode(permisionState,objPost, callback) {
+        console.log(jQuery.extend({idtoken: getTokenID()}, objPost));
+        $.ajax({
+            type: "POST",
+            url: (permisionState == 1 ? "/adminAPI":"/userAPI"),
+            data: jQuery.extend({
+                idtoken: getTokenID()
+            }, objPost),
+            success: function(response) {
+                callback({
+                    blSucese: true,
+                    resback: response
+                });
+            }, timeout: 60000,
+            error: function(jqXHR, textStatus, errorThrown) {
+                $('#alertBoxTrue').html(
+                    '<div id="ajaxalert" style="z-index:9999999;width:300px" class="alert alert-danger shadow alert-dismissable">' +
+                    '    <strong><i class="fas fa-exclamation-triangle"></i> ระบบขัดข้องกับลังเชื่อมต่อใหม่ภายใน 60 วินาที</strong>' +
+                    '</div>'
+                );
+                setTimeout(function() {
+                    $('#ajaxalert').remove();
+                    connectNode(permisionState,objPost, callback);
+                }, 10000);
+            }
+        });
+    }
+
+    function manageuser() {
+        if(clickState) {
+            clickState = false;
+            loadingPage();
+
+            connectNode(1,{typedata: 'getAlluser'}, (dataBack) => {
+                clickState = true;
+                $('#mainBody').html(
+                    '<div class="row">' +
+                    '   <div class="col-12 col-md-8">' +
+                    '       <div id="ExcuteTable" class="row">' +
+                    '       </div>' +
+                    '   </div>' +
+                    '   <div id="listUser" class="col-12 col-md-4">' +
+                    '       ' +
+                    '   </div>' +
+                    '</div>');
+                let stateDo1 = 0;
+                let stateDo2 = 0;
+                let stateDo3 = 0;
+                let couters = 0;
+                $.each(dataBack.resback, function (key, value) {
+                    let proc = 2
+                    try {
+                        if (value.customClaims.admin) {
+                            stateDo1++;
+                            proc = 0;
+                        } else if (value.customClaims.admin == false) {
+                            proc = 1;
+                            stateDo2++;
+                        } else {
+                            proc = 2;
+                            stateDo3++;
+                        }
+                    } catch (e) {
+                        proc = 2;
+                    }
+                    couters++;
+                    $('#ExcuteTable').append(
+                        '<div id="cp_' + value.uid + '" class="col-12 col-md-6">' +
+                        '     <div class="card shadow mb-4">' +
+                        '          <div class="card-header py-3">' +
+                        '               <h6 class="m-0 font-weight-bold text-center text-primary">' + value.displayName + '</h6>' +
+                        '          </div>' +
+                        '          <div class="card-body text-left"><p><b>อีเมลล์:</b> ' + value.email + ' </p><p><b>สมัครวันที่:</b> ' + value.metadata.creationTime + ' </p>' +
+                        '               <div  class="text-center"><div class="btn-group btn-group-toggle" data-toggle="buttons">' +
+                        '                    <label class="btn btn-primary ' + (proc == 0 ? 'active' : '') + '" ros="mem" uid="' + value.uid + '" value="0">' +
+                        '                         <input type="radio" name="options_' + couters + '" id="option1_' + couters + '" autocomplete="off"> เเอดมิน' +
+                        '                    </label>' +
+                        '                    <label class="btn btn-primary ' + (proc == 1 ? 'active' : '') + '" ros="mem" uid="' + value.uid + '" value="1">' +
+                        '                         <input type="radio" name="options_' + couters + '" id="option2_' + couters + '" autocomplete="off"> สมาชิก' +
+                        '                    </label>' +
+                        '                    <label class="btn btn-primary ' + (proc == 2 ? 'active' : '') + '" ros="mem" uid="' + value.uid + '" value="2">' +
+                        '                         <input type="radio" name="options_' + couters + '" id="option3_' + couters + '" autocomplete="off"> รออนุมัติ' +
+                        '                    </label>' +
+                        '                </div>' +
+                        '          </div></div>' +
+                        '     </div>' +
+                        '</div>');
+
+                });
+                $('#listUser').append(
+                    '<div class="col-xl-12 mb-4">\n' +
+                    '              <div class="card border-left-primary shadow h-100 py-2">\n' +
+                    '                <div class="card-body">\n' +
+                    '                  <div class="row no-gutters align-items-center">\n' +
+                    '                    <div class="col mr-2">\n' +
+                    '                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">จำนวนสมาชิคทั้งหมด</div>\n' +
+                    '                      <div class="h5 mb-0 font-weight-bold text-gray-800">'+ (stateDo1 + stateDo2) +'</div>\n' +
+                    '                    </div>\n' +
+                    '                    <div class="col-auto">\n' +
+                    '                      <i class="fas fa-user-alt fa-2x text-gray-300"></i>\n' +
+                    '                    </div>\n' +
+                    '                  </div>\n' +
+                    '                </div>\n' +
+                    '              </div>\n' +
+                    '            </div>'+
+                    '<div class="col-xl-12 mb-4">\n' +
+                    '              <div class="card border-left-danger shadow h-100 py-2">\n' +
+                    '                <div class="card-body">\n' +
+                    '                  <div class="row no-gutters align-items-center">\n' +
+                    '                    <div class="col mr-2">\n' +
+                    '                      <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">จำนวนสมาชิค</div>\n' +
+                    '                      <div class="h5 mb-0 font-weight-bold text-gray-800">'+ (stateDo2) +'</div>\n' +
+                    '                    </div>\n' +
+                    '                    <div class="col-auto">\n' +
+                    '                      <i class="fas fa-user-alt fa-2x text-gray-300"></i>\n' +
+                    '                    </div>\n' +
+                    '                  </div>\n' +
+                    '                </div>\n' +
+                    '              </div>\n' +
+                    '            </div>'+
+                    '<div class="col-xl-12 mb-4">\n' +
+                    '              <div class="card border-left-warning shadow h-100 py-2">\n' +
+                    '                <div class="card-body">\n' +
+                    '                  <div class="row no-gutters align-items-center">\n' +
+                    '                    <div class="col mr-2">\n' +
+                    '                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">จำนวนเเอดมิน</div>\n' +
+                    '                      <div class="h5 mb-0 font-weight-bold text-gray-800">'+ (stateDo1) +'</div>\n' +
+                    '                    </div>\n' +
+                    '                    <div class="col-auto">\n' +
+                    '                      <i class="fas fa-user-alt fa-2x text-gray-300"></i>\n' +
+                    '                    </div>\n' +
+                    '                  </div>\n' +
+                    '                </div>\n' +
+                    '              </div>\n' +
+                    '            </div>'
+                );
+                $('label[ros="mem"]').click(function () {
+                    var uids = $(this).attr('uid');
+                    connectNode(1,{typedata: 'setRoleUser', idUser: uids, permer: $(this).attr('value')}, (dataBack) => {
+
+                    });
+                });
+            });
+        }
+    }
+
+</script>
+
+
+</body>

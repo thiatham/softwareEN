@@ -124,6 +124,7 @@
       $.ajax({
         type: "POST",
         url: "/GetPages",
+        typedata: 'json',
         data: jQuery.extend({ idtoken: getTokenID() }, value),
         success: function (response) {
           $('#data-extract').html(response);

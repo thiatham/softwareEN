@@ -10,6 +10,8 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const rateLimit = require("express-rate-limit");
+const ejsLint = require('ejs-lint');
+manageuser = require(path.join(__dirname + '/module/mangerUser.js'));
 const app = express();
 
 const apiLimiter = rateLimit({
@@ -19,7 +21,7 @@ const apiLimiter = rateLimit({
 });
 
 app.use(bodyParser.json({
-    limit: '5gb'
+    limit: '5md'
 }));
 app.use(bodyParser.urlencoded({
     limit: '50mb',
@@ -32,11 +34,64 @@ app.get('/', apiLimiter, (req, res) => {
     rb = req.body;
 	res.render("loading");
 });
+
+app.post('/adminAPI', apiLimiter,(req, res) => {
+    rb = req.body;
+    manageuser.getDataformToken(rb.idtoken , userRecord => {
+        console.log(userRecord.customClaims.admin);
+        if (userRecord.customClaims.admin) {
+            console.log(rb.typedata);
+            switch (rb.typedata) {
+                case 'getAlluser':
+                    manageuser.getAlluser( (data) => {
+                        res.json(data);
+                    });
+                    break;
+
+                case 'getRoleUser':
+                    manageuser.getRoleUser(rb.idUser, data => {
+                        res.send(data);
+                    });
+                    break;
+                case 'setRoleUser':
+                    manageuser.setRoleper(rb.idUser, rb.permer, (roleboolean) => {
+                        res.json({ setP: roleboolean });
+                    });
+                    break;
+
+            }
+        }
+    });
+});
+app.post('/membersAPI', apiLimiter, (req, res) => {
+    rb = req.body;
+    switch (rb.typedata) {
+        case 'createNewUser':
+            manageuser.createNewUser(
+                rb.email,
+                rb.phoneNumber,
+                rb.password,
+                rb.displayName,
+                (data) => {
+                    res.json({ repost: data.Te });
+                });
+            break;
+    }
+});
 app.post('/GetPages', apiLimiter, (req, res) => {
     rb = req.body;
     switch (rb.typedata) {
         case 'dashboard':
-            res.render("dashboard");
+            manageuser.getDataformToken(rb.idtoken , userRecord => {
+                console.log(userRecord.customClaims.admin);
+                if (userRecord.customClaims.admin) {
+                    res.render("dashboard-admin");
+                } else if(userRecord.customClaims.admin === false){
+                    res.render("dashboard-user");
+                } else {
+                    res.send("WHY ARE YOU HERE?")
+                }
+            });
             break;
         case 'login':
             res.render("login");
