@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Views</title>
+    <title>SB Admin 2 - Views Table Part</title>
 
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -141,11 +141,11 @@
                     <span>Tables</span></a>
             </li>
 
-            <!-- Nav Item - viewTables -->
+            <!-- Nav Item - viewTables of Part -->
             <li class="nav-item active">
-                <a class="nav-link" href="viewTable.html">
+                <a class="nav-link" href="viewTable-Part.html">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Views</span></a>
+                    <span>Views Table Part</span></a>
             </li>
 
             <!-- Divider -->
@@ -367,9 +367,7 @@
                                 </a>
                             </div>
                         </li>
-
                     </ul>
-
                 </nav>
                 <!-- End of Topbar -->
 
@@ -377,7 +375,7 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">คำของบประมาณโครงการ/กิจกรรมตามหลักสูตร</h1>
+                    <h1 class="h3 mb-2 text-gray-800">คำของบประมาณโครงการ/กิจกรรมตามฝ่าย</h1>
                     <p class="mb-4"><a target="_blank" href=""></a></p>
 
                     <!-- DataTales Example -->
@@ -385,22 +383,21 @@
                         <div class="card-header py-3">
                             <nav>
                                 <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-                                    <a class="nav-item nav-link active" id="nav-CE-tab" data-toggle="tab" href="#nav-CE"
-                                        role="tab" aria-controls="nav-CE" aria-selected="true">CE</a>
-                                    <a class="nav-item nav-link" id="nav-EE-tab" data-toggle="tab" href="#nav-EE"
-                                        role="tab" aria-controls="nav-EE" aria-selected="false">EE</a>
-                                    <a class="nav-item nav-link" id="nav-AE-tab" data-toggle="tab" href="#nav-AE"
-                                        role="tab" aria-controls="nav-AE" aria-selected="false">AE</a>
-                                    <a class="nav-item nav-link" id="nav-IE-tab" data-toggle="tab" href="#nav-IE" 
-                                        role="tab" aria-controls="nav-IE" aria-selected="false">IE</a>
-                                    <a class="nav-item nav-link" id="nav-ME-tab" data-toggle="tab" href="#nav-ME"
-                                        role="tab" aria-controls="nav-ME" aria-selected="false">ME</a>
-                                    <a class="nav-item nav-link" id="nav-ENV-tab" data-toggle="tab" href="#nav-ENV"
-                                        role="tab" aria-controls="nav-ENV" aria-selected="false">ENV</a>
-                                    <a class="nav-item nav-link" id="nav-CHE-tab" data-toggle="tab" href="#nav-CHE"
-                                        role="tab" aria-controls="nav-CHE" aria-selected="false">CHE</a>
-                                    <a class="nav-item nav-link" id="nav-COE-tab" data-toggle="tab" href="#nav-COE"
-                                        role="tab" aria-controls="nav-COE" aria-selected="false">COE</a>
+                                    <a class="nav-item nav-link active" id="nav-บริหารE-tab" data-toggle="tab"
+                                        href="#nav-บริหาร" role="tab" aria-controls="nav-บริหาร"
+                                        aria-selected="true">ฝ่ายบริหาร</a>
+                                    <a class="nav-item nav-link" id="nav-วิชาการ-tab" data-toggle="tab"
+                                        href="#nav-วิชาการ" role="tab" aria-controls="nav-วิชาการ"
+                                        aria-selected="false">ฝ่ายวิชาการ</a>
+                                    <a class="nav-item nav-link" id="nav-แผน-tab" data-toggle="tab" href="#nav-แผน"
+                                        role="tab" aria-controls="nav-แผน" aria-selected="false">ฝ่ายแผน</a>
+                                    <a class="nav-item nav-link" id="nav-วิจัย-tab" data-toggle="tab" href="#nav-วิจัย"
+                                        role="tab" aria-controls="nav-วิจัย" aria-selected="false">ฝ่ายวิจัย</a>
+                                    <a class="nav-item nav-link" id="nav-คลัง-tab" data-toggle="tab" href="#nav-คลัง"
+                                        role="tab" aria-controls="nav-คลัง" aria-selected="false">ฝ่ายคลัง + พัสดุ</a>
+                                    <a class="nav-item nav-link" id="nav-ปฏิบัติการ-tab" data-toggle="tab"
+                                        href="#nav-ปฏิบัติการ" role="tab" aria-controls="nav-ปฏิบัติการ"
+                                        aria-selected="false">ฝ่ายปฏิบัติการ</a>
                                 </div>
                             </nav>
                         </div>
@@ -410,8 +407,8 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="tab-content" id="nav-tabContent">
-                                            <div class="tab-pane fade show active" id="nav-CE" role="tabpanel"
-                                                aria-labelledby="nav-CE-tab">
+                                            <div class="tab-pane fade show active" id="nav-บริหาร" role="tabpanel"
+                                                aria-labelledby="nav-บริหาร-tab">
                                                 <table class="table table-bordered" id="dataTable" width="100%"
                                                     cellspacing="0">
                                                     <thead>
@@ -591,10 +588,10 @@
                                                     </tbody>
                                                 </table>
                                             </div>
-                                            <!--End tab CE -->
+                                            <!--End tab บริหาร -->
 
-                                            <div class="tab-pane fade" id="nav-EE" role="tabpanel"
-                                                aria-labelledby="nav-EE-tab">
+                                            <div class="tab-pane fade" id="nav-วิชาการ" role="tabpanel"
+                                                aria-labelledby="nav-วิชาการ-tab">
                                                 <table class="table table-bordered" id="dataTable" width="100%"
                                                     cellspacing="0">
                                                     <thead>
@@ -668,10 +665,10 @@
                                                     </tbody>
                                                 </table>
                                             </div>
-                                            <!--End tab EE -->
+                                            <!--End tab วิชาการ -->
 
-                                            <div class="tab-pane fade" id="nav-AE" role="tabpanel"
-                                                aria-labelledby="nav-AE-tab">
+                                            <div class="tab-pane fade" id="nav-แผน" role="tabpanel"
+                                                aria-labelledby="nav-แผน-tab">
                                                 <table class="table table-bordered" id="dataTable" width="100%"
                                                     cellspacing="0">
                                                     <thead>
@@ -760,10 +757,10 @@
                                                     </tbody>
                                                 </table>
                                             </div>
-                                            <!--End tab AE -->
+                                            <!--End tab แผน -->
 
-                                            <div class="tab-pane fade" id="nav-IE" role="tabpanel"
-                                                aria-labelledby="nav-IE-tab">
+                                            <div class="tab-pane fade" id="nav-วิจัย" role="tabpanel"
+                                                aria-labelledby="nav-วิจัย-tab">
                                                 <table class="table table-bordered" id="dataTable" width="100%"
                                                     cellspacing="0">
                                                     <thead>
@@ -861,10 +858,10 @@
                                                     </tbody>
                                                 </table>
                                             </div>
-                                            <!--End tab IE -->
+                                            <!--End tab วิจัย -->
 
-                                            <div class="tab-pane fade" id="nav-ME" role="tabpanel"
-                                                aria-labelledby="nav-ME-tab">
+                                            <div class="tab-pane fade" id="nav-คลัง" role="tabpanel"
+                                                aria-labelledby="nav-คลัง-tab">
                                                 <table class="table table-bordered" id="dataTable" width="100%"
                                                     cellspacing="0">
                                                     <thead>
@@ -972,10 +969,10 @@
                                                     </tbody>
                                                 </table>
                                             </div>
-                                            <!--End tab ME -->
+                                            <!--End tab คลัง -->
 
-                                            <div class="tab-pane fade" id="nav-ENV" role="tabpanel"
-                                                aria-labelledby="nav-ENV-tab">
+                                            <div class="tab-pane fade" id="nav-ปฏิบัติการ" role="tabpanel"
+                                                aria-labelledby="nav-ปฏิบัติการ-tab">
                                                 <table class="table table-bordered" id="dataTable" width="100%"
                                                     cellspacing="0">
                                                     <thead>
@@ -1063,204 +1060,7 @@
                                                     </tbody>
                                                 </table>
                                             </div>
-                                            <!--End tab ENV -->
-
-                                            <div class="tab-pane fade" id="nav-CHE" role="tabpanel"
-                                                aria-labelledby="nav-CHE-tab">
-                                                <table class="table table-bordered" id="dataTable" width="100%"
-                                                    cellspacing="0">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>ที่</th>
-                                                            <th>โครงการ/กิจกรรมย่อย</th>
-                                                            <th>ตัวชี้วัด</th>
-                                                            <th>ค่าเป้าหมาย</th>
-                                                            <th>ผู้รับผิดชอบ</th>
-                                                            <th>งบประมาณ(ตามแผน)</th>
-                                                            <th>โอนออก</th>
-                                                            <th>โอนเข้า</th>
-                                                            <th>คงเหลือ(ตามแผน)</th>
-                                                            <th>ขออนุมัติใช้</th>
-                                                            <th>เบิกจ่าย</th>
-                                                            <th>คงเหลือจากหลักการ</th>
-                                                            <th>คงเหลือจากเบิกจ่ายจริง</th>
-                                                            <th>หมายเหตุ</th>
-                                                            <th>ผลการดำเนินงาน</th>
-                                                            <th>รายละเอียด</th>
-                                                            <th>ปัญหาอุปสรรค</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td class="page-header">1</td>
-                                                            <td><button type="button" class="tbtn"><i
-                                                                        class="fa fa-plus-circle"></i>
-                                                                    1. โครงการการออกแบบโรงงานอุตสาหกรรมเคมี
-                                                                    (การนำเสนอการออกแบบโรงงานอุตสาหกรรมเคมี
-                                                                    รายวิชา 197420)
-                                                                </button> </td>
-                                                            <td>จำนวนโครงการที่เข้าร่วม</td>
-                                                            <td>4</td>
-                                                            <td>เคมี ปกติ</td>
-                                                            <td>7,000</td>
-                                                            <td>0</td>
-                                                            <td>0</td>
-                                                            <td>7,000</td>
-                                                            <td>6,780</td>
-                                                            <td>0</td>
-                                                            <td>220</td>
-                                                            <td>7,000</td>
-                                                            <td>-</td>
-                                                            <td>-</td>
-                                                            <td>-</td>
-                                                            <td>-</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="page-header">2</td>
-                                                            <td><button type="button" class="tbtn"><i
-                                                                        class="fa fa-plus-circle"></i>
-                                                                    2.
-                                                                    โครงการเตรียมความพร้อมนักศึกษาก่อนเข้าเรียนวิศวกรรมเคมี</button>
-                                                            </td>
-                                                            <td>จำนวนโครงการที่เข้าร่วม</td>
-                                                            <td>50</td>
-                                                            <td>เคมี ปกติ</td>
-                                                            <td>10,000</td>
-                                                            <td>0</td>
-                                                            <td>0</td>
-                                                            <td>10,000</td>
-                                                            <td>0</td>
-                                                            <td>0</td>
-                                                            <td>10,000</td>
-                                                            <td>10,000</td>
-                                                            <td>-</td>
-                                                            <td>-</td>
-                                                            <td>-</td>
-                                                            <td>-</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="page-header">3</td>
-                                                            <td><button type="button" class="tbtn"><i
-                                                                        class="fa fa-plus-circle"></i>
-                                                                    3. โครงการการทวนสอบ outcome
-                                                                    ของนักศึกษาแต่ละชั้นปี</button> </td>
-                                                            <td>จำนวนโครงการที่เข้าร่วม</td>
-                                                            <td>60</td>
-                                                            <td>เคมี ปกติ</td>
-                                                            <td>7,000</td>
-                                                            <td>0</td>
-                                                            <td>0</td>
-                                                            <td>7,000</td>
-                                                            <td>6,780</td>
-                                                            <td>0</td>
-                                                            <td>220</td>
-                                                            <td>7,000</td>
-                                                            <td>-</td>
-                                                            <td>-</td>
-                                                            <td>-</td>
-                                                            <td>-</td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                            <!--End tab CHE -->
-
-                                            <div class="tab-pane fade" id="nav-COE" role="tabpanel"
-                                                aria-labelledby="nav-COE-tab">
-                                                <table class="table table-bordered" id="dataTable" width="100%"
-                                                    cellspacing="0">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>ที่</th>
-                                                            <th>โครงการ/กิจกรรมย่อย</th>
-                                                            <th>ตัวชี้วัด</th>
-                                                            <th>ค่าเป้าหมาย</th>
-                                                            <th>ผู้รับผิดชอบ</th>
-                                                            <th>งบประมาณ(ตามแผน)</th>
-                                                            <th>โอนออก</th>
-                                                            <th>โอนเข้า</th>
-                                                            <th>คงเหลือ(ตามแผน)</th>
-                                                            <th>ขออนุมัติใช้</th>
-                                                            <th>เบิกจ่าย</th>
-                                                            <th>คงเหลือจากหลักการ</th>
-                                                            <th>คงเหลือจากเบิกจ่ายจริง</th>
-                                                            <th>หมายเหตุ</th>
-                                                            <th>ผลการดำเนินงาน</th>
-                                                            <th>รายละเอียด</th>
-                                                            <th>ปัญหาอุปสรรค</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td class="page-header">1</td>
-                                                            <td><button type="button" class="tbtn">
-                                                                    1. ส่งเสริมให้นักศึกษามีภาวะผู้นำ
-                                                                    และคิดวิเคราะห์</button> </td>
-                                                            <td>ร้อยละนักศึกษาที่สำเร็จการศึกษาตามระยะเวลาที่หลักสูตรกำหนด
-                                                            </td>
-                                                            <td>ร้อยละ 55</td>
-                                                            <td>วิศวกรรมคอมพิวเตอร์</td>
-                                                            <td>163,470</td>
-                                                            <td>0</td>
-                                                            <td>0</td>
-                                                            <td>163,470</td>
-                                                            <td>107,340</td>
-                                                            <td>8,777</td>
-                                                            <td>56,130</td>
-                                                            <td>154,693</td>
-                                                            <td>-</td>
-                                                            <td>-</td>
-                                                            <td>-</td>
-                                                            <td>-</td>
-                                                        </tr>
-                                                        <tr class="toggler">
-                                                            <td rowspan="5"></td>
-                                                            <td><a href="#">1.1
-                                                                    โครงการเสริมประสบการณ์ด้านวิชาชีพให้นักศึกษา</a>
-                                                            </td>
-                                                            <td>ร้อยละจำนวนผู้เข้าโครงการ</td>
-                                                            <td>ร้อยละ 80</td>
-                                                            <td>วิศวกรรมคอมพิวเตอร์</td>
-                                                            <td>20,000 </td>
-                                                            <td>0</td>
-                                                            <td>0</td>
-                                                            <td>20,000</td>
-                                                            <td>12,100</td>
-                                                            <td>8,777</td>
-                                                            <td>7,900</td>
-                                                            <td>11,223</td>
-                                                            <td>ขอเปลี่ยนตัวชี้วัด เดิม แบบประเมินความพึงพอใจ
-                                                                เปลี่ยนเป็น ร้อยละผู้เข้าโครงการ</td>
-                                                            <td>ผู้เข้าร่วมโครงการ จำนวน 60 คน ผลการดำเนินงาน
-                                                                มีผู้เข้าร่วมโครงการ 63 คน</td>
-                                                            <td>1.วันที่จัดโครงการ 1 พฤศจิกายน 2562 2.ณ
-                                                                สาขาวิชาวิศวกรรมคอมพิวเตอร์ 3.
-                                                                จำนวนผู้เข้าร่วมโครงการ 63 คน 4.กลุ่มผู้เข้าร่วม
-                                                                นักศึกษา</td>
-                                                            <td>-</td>
-                                                        </tr>
-                                                        <tr class="toggler">
-                                                            <td>1.2 โครงการส่งเสริมทักษะด้านวิชาการหรือวิชาชีพ</td>
-                                                            <td>แบบประเมินความพึงพอใจ</td>
-                                                            <td>ร้อยละ 4</td>
-                                                            <td>วิศวกรรมคอมพิวเตอร์</td>
-                                                            <td>128,470</td>
-                                                            <td>0</td>
-                                                            <td>0</td>
-                                                            </td>
-                                                            <td>95,240</td>
-                                                            <td>0</td>
-                                                            <td>33,230</td>
-                                                            <td>128,470</td>
-                                                            <td>-</td>
-                                                            <td>-</td>
-                                                            <td>-</td>
-                                                            <td>-</td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                            <!--End tab COE -->
+                                            <!--End tab ปฏิบัติการ -->
 
                                         </div>
                                         <!-- End tab-content -->
@@ -1350,6 +1150,7 @@
                 $(this).parents("tbody").find(".toggler").addClass("toggler1");
                 $(this).parents(".table-bordered").find(".fa-minus-circle").removeClass("fa-minus-circle");
                 $(this).parents("tbody").find(".fa-plus-circle").addClass("fa-minus-circle");
+                
             });
         });
     </script>
