@@ -1,4 +1,60 @@
+<style type="text/css">
 
+    .table-bordered-v2 {
+        width:100%;
+        white-space: nowrap;
+    }
+    .table-bordered-v2 tr td:nth-child(5) {
+        font-weight: bold;
+        text-align: left;
+    }
+    .table-bordered-v2 tr td:nth-child(2),.table-bordered-v2 tr td:nth-child(4),.table-bordered-v2 tr td:nth-child(3) {
+        font-weight: bold;
+        color:red;
+    }
+
+    .table-bordered-v2 td {
+        padding: 0 5px;
+    }
+    .table-bordered-v2 tr:hover {
+        background-color: #f5e972;
+        cursor: pointer;
+    }
+    .table-bordered-v2 tr,th {
+        padding: 8px;
+        text-align: center;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .btnAccept {
+        color: snow;
+        background-color: #7DCEA0;
+        font-weight: bold;
+        font-size: 14px;
+        text-shadow: none;
+        min-width: 70px;
+        border-radius: 5px;
+        border-color: transparent;
+        line-height: 20px;
+        cursor: pointer;
+
+
+    }
+    .btnAccept:hover{
+        opacity: 1;
+        background-color: #52BE80;
+    }
+
+    .btnAccept:focus{
+        outline: none;
+    }
+    .limited-text{
+        white-space: nowrap;
+        width: 600px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+</style>
 
 <body id="page-top">
 
@@ -14,7 +70,98 @@
             <%- include('widgets/topbar.ejs')%>
             <!-- Begin Page Content -->
             <div id="mainBody" class="container-fluid">
-                <h1>สถานะ ADMIN ครับ</h1>
+                <!-- Part Select -->
+                <div>
+                    <div class="card shadow mb-4">
+                        <!-- Card Header - Dropdown -->
+                        <div class="card-header py-3">
+                            <h6 class="h3 mb-2 text-gray-800">สรุปงบประมาณโดยรวม</h6>
+                        </div>
+                        <!-- Card Body -->
+                        <!-- Page Heading -->
+                        <div class="col-xl-8 col-lg-7">
+                            <div class="mb-4"></div>
+                            <a href="charts_viewer_depart_CE.html" class="mb-4 btn btn-info btn-icon-split">
+                                <span class="text">CE</span>
+                            </a>
+                            <a href="charts_viewer_depart_EE.html" class="mb-4 btn btn-primary btn-icon-split">
+                                <span class="text">EE</span>
+                            </a>
+                            <a href="charts_viewer_depart_AE.html" class="mb-4 btn btn-success btn-icon-split">
+                                <span class="text">AE</span>
+                            </a>
+                            <a href="charts_viewer_depart_IE.html" class="mb-4 btn btn-warning btn-icon-split">
+                                <span class="text">IE</span>
+                            </a>
+                            <a href="charts_viewer_depart_ME.html" class="mb-4 btn btn-danger btn-icon-split">
+                                <span class="text">ME</span>
+                            </a>
+                            <a href="charts_viewer_depart_ENVI.html" class="mb-4 btn btn-secondary btn-icon-split">
+                                <span class="text">ENVI</span>
+                            </a>
+                            <a href="charts_viewer_depart_CHEM.html" class="mb-4 btn btn-info btn-icon-split">
+                                <span class="text">CHEM</span>
+                            </a>
+                            <a href="charts_viewer_depart_COE.html" class="mb-4 btn btn-primary btn-icon-split">
+                                <span class="text">COE</span>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- Content Row -->
+                <div class="row">
+
+                    <div class="col-xl-8 col-lg-7">
+
+                        <!-- Area Chart -->
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">งบประมาณที่ใช้ไปแล้ว</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-area">
+                                    <canvas id="myAreaChart"></canvas>
+                                </div>
+                                <hr>
+                                Styling for the area chart can be found in the <code>/js/demo/chart-area-demo.js</code> file.
+                            </div>
+                        </div>
+
+                        <!-- Bar Chart -->
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">งบประมาณในแต่ละเดือน</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-bar">
+                                    <canvas id="myBarChart"></canvas>
+                                </div>
+                                <hr>
+                                Styling for the bar chart can be found in the <code>/js/demo/chart-bar-demo.js</code> file.
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Donut Chart -->
+                    <div class="col-xl-4 col-lg-5">
+                        <div class="card shadow mb-4">
+                            <!-- Card Header - Dropdown -->
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">กิจกรรม</h6>
+                            </div>
+                            <!-- Card Body -->
+                            <div class="card-body">
+                                <div class="chart-pie pt-4">
+                                    <canvas id="myPieChart"></canvas>
+                                </div>
+                                <hr>
+                                Styling for the donut chart can be found in the <code>/js/demo/chart-pie-demo.js</code> file.
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!-- /.container-fluid -->
 
@@ -29,33 +176,57 @@
 </div>
 <!-- End of Page Wrapper -->
 
+<!-- Start of modal -->
+<div class="modal" id="modal_box" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title limited-text">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body p-0">
+                descript
+            </div>
+            <div class="modal-footer"></div>
+        </div>
+    </div>
+</div>
+<!-- End of modal -->
+
 <!-- Scroll to Top Button-->
 <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
 </a>
 
 <script>
-    clickState = true;
-
+    // clickState : boolean : ใช้ในการตรวจสอบว่ามีการส่งค่าไปยัง api อยู่หรือเปล่า
+    var clickState = true;
+    // dataSave : object : ใช้เก็บข้อมูลหลัง query data ทั้งหมด
+    var dataSave;
+    // dataSave : object : เก็บต่าที่สมาชิค เเก้ไขไป
+    var optionChange = {};
+    // loadingPage : function : ถ้า ตัวเเปร undefine ให้ retrun ""
+    function ckundef(values){
+        return (values ? values:"");
+    }
+    // loadingPage : function : ใช้เเสดงหน้าโหลดใน content
     function loadingPage() {
         $('#mainBody').html('<div id="loadingDiv"><div class="loader2">Loading...</div></div>');
     }
-
-    function connectNode(permisionState,objPost, callback) {
+    // connectNode : function : เชื่อมต่อ api ตัวอย่างต่า ({command:"command"})
+    function connectNode(objPost, callback) {
         console.log(jQuery.extend({idtoken: getTokenID()}, objPost));
         $.ajax({
             type: "POST",
-            url: (permisionState == 1 ? "/adminAPI":"/userAPI"),
+            url: "/adminAPI",
             data: jQuery.extend({
                 idtoken: getTokenID()
             }, objPost),
             success: function(response) {
-                callback({
-                    blSucese: true,
-                    resback: response
-                });
-            }, timeout: 60000,
-            error: function(jqXHR, textStatus, errorThrown) {
+                callback(response);
+            }, error: function(jqXHR, textStatus, errorThrown) {
                 $('#alertBoxTrue').html(
                     '<div id="ajaxalert" style="z-index:9999999;width:300px" class="alert alert-danger shadow alert-dismissable">' +
                     '    <strong><i class="fas fa-exclamation-triangle"></i> ระบบขัดข้องกับลังเชื่อมต่อใหม่ภายใน 60 วินาที</strong>' +
@@ -63,131 +234,311 @@
                 );
                 setTimeout(function() {
                     $('#ajaxalert').remove();
-                    connectNode(permisionState,objPost, callback);
+                    connectNode(objPost, callback);
                 }, 10000);
             }
         });
     }
-
-    function manageuser() {
+    // lettersToNumber : function : เเปลงจาก charater column excel เป็น number
+    function lettersToNumber(letters){
+        return letters.split('').reduce((r, a) => r * 26 + parseInt(a, 36) - 9, 0);
+    }
+    // numberWithCommas : function : ตามชื่อ
+    function numberWithCommas(x) {
+        if(isNaN(x)){
+            return x;
+        }
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+    // mannageUser : function : หน้าจัดการสมาชิค
+    function mannageUser() {
         if(clickState) {
             clickState = false;
             loadingPage();
-
-            connectNode(1,{typedata: 'getAlluser'}, (dataBack) => {
+            connectNode({command: 'getDataUser'},(dataUser) => {
                 clickState = true;
                 $('#mainBody').html(
-                    '<div class="row">' +
-                    '   <div class="col-12 col-md-8">' +
-                    '       <div id="ExcuteTable" class="row">' +
-                    '       </div>' +
-                    '   </div>' +
-                    '   <div id="listUser" class="col-12 col-md-4">' +
-                    '       ' +
-                    '   </div>' +
-                    '</div>');
-                let stateDo1 = 0;
-                let stateDo2 = 0;
-                let stateDo3 = 0;
+                    '<!-- DataTales USER -->' +
+                    '<div class="card shadow mb-4">' +
+                    '  <div class="card-header py-3">' +
+                    '    <h6 class="m-0 font-weight-bold text-primary">จัดการสิทธิการเข้าถึงของสมาชิก</h6>' +
+                    '  </div>' +
+                    '  <div class="card-body">' +
+                    '    <div class="table-responsive">' +
+                    '      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">' +
+                    '        <thead>' +
+                    '          <tr>' +
+                    '            <th>อีเมลล์</th>' +
+                    '            <th>สิทธิการเข้าถึง</th>' +
+                    '            <th>ชื่อ</th>' +
+                    '            <th>นามสกุล</th>' +
+                    '            <th>ฝ่าย</th>' +
+                    '            <th>สาขาวิชา</th>' +
+                    '          </tr>' +
+                    '        </thead>' +
+                    '        <tbody id="ExcuteTable">' +
+                    '        </tbody>' +
+                    '      </table>' +
+                    '    </div>' +
+                    '  </div>' +
+                    '</div>'
+                );
                 let couters = 0;
-                $.each(dataBack.resback, function (key, value) {
-                    let proc = 2
-                    try {
-                        if (value.customClaims.admin) {
-                            stateDo1++;
-                            proc = 0;
-                        } else if (value.customClaims.admin == false) {
-                            proc = 1;
-                            stateDo2++;
-                        } else {
-                            proc = 2;
-                            stateDo3++;
-                        }
-                    } catch (e) {
-                        proc = 2;
-                    }
+                $.each(dataUser, function (key, value) {
+                    console.log(value)
                     couters++;
                     $('#ExcuteTable').append(
-                        '<div id="cp_' + value.uid + '" class="col-12 col-md-6">' +
-                        '     <div class="card shadow mb-4">' +
-                        '          <div class="card-header py-3">' +
-                        '               <h6 class="m-0 font-weight-bold text-center text-primary">' + value.displayName + '</h6>' +
-                        '          </div>' +
-                        '          <div class="card-body text-left"><p><b>อีเมลล์:</b> ' + value.email + ' </p><p><b>สมัครวันที่:</b> ' + value.metadata.creationTime + ' </p>' +
-                        '               <div  class="text-center"><div class="btn-group btn-group-toggle" data-toggle="buttons">' +
-                        '                    <label class="btn btn-primary ' + (proc == 0 ? 'active' : '') + '" ros="mem" uid="' + value.uid + '" value="0">' +
-                        '                         <input type="radio" name="options_' + couters + '" id="option1_' + couters + '" autocomplete="off"> เเอดมิน' +
-                        '                    </label>' +
-                        '                    <label class="btn btn-primary ' + (proc == 1 ? 'active' : '') + '" ros="mem" uid="' + value.uid + '" value="1">' +
-                        '                         <input type="radio" name="options_' + couters + '" id="option2_' + couters + '" autocomplete="off"> สมาชิก' +
-                        '                    </label>' +
-                        '                    <label class="btn btn-primary ' + (proc == 2 ? 'active' : '') + '" ros="mem" uid="' + value.uid + '" value="2">' +
-                        '                         <input type="radio" name="options_' + couters + '" id="option3_' + couters + '" autocomplete="off"> รออนุมัติ' +
-                        '                    </label>' +
-                        '                </div>' +
-                        '          </div></div>' +
-                        '     </div>' +
-                        '</div>');
+                        '<tr>' +
+                        '  <td>'+value.email+'</td>' +
+                        '  <td>' +
+                        '    <select class="form-control" id="access">' +
+                        '      <option>Admins</option>' +
+                        '      <option>Editor</option>' +
+                        '      <option>Viewer</option>' +
+                        '      <option>Dean</option>' +
+                        '    </select>' +
+                        '  </td>' +
+                        '  <td>'+value.displayName.split(" ")[0]+'</td>' +
+                        '  <td>'+value.displayName.split(" ")[1]+'</td>' +
+                        '  <td>' +
+                        '    <select class="form-control" id="ฝ่าย">' +
+                        '      <option>-</option>' +
+                        '      <option>ฝ่ายบริหาร</option>' +
+                        '      <option>ฝ่ายวิชาการ</option>' +
+                        '      <option>ฝ่ายแผน</option>' +
+                        '      <option>ฝ่ายวิจัย</option>' +
+                        '      <option>ฝ่ายคลังพัสดุ</option>' +
+                        '      <option>ฝ่ายปฏิบัติการ</option>' +
+                        '    </select>' +
+                        '  </td>' +
+                        '  <td>' +
+                        '    <select class="form-control" id="ฝ่าย">' +
+                        '      <option>-</option>' +
+                        '      <option>CE</option>' +
+                        '      <option>EE</option>' +
+                        '      <option>AE</option>' +
+                        '      <option>IE</option>' +
+                        '      <option>ME</option>' +
+                        '      <option>ENVI</option>' +
+                        '      <option>CHEM</option>' +
+                        '      <option>COE</option>' +
+                        '    </select>' +
+                        '  </td>' +
+                        '  <td>' +
+                        '    <button type="button" class="btnAccept">Accept</button>' +
+                        '  </td>' +
+                        '  <td>' +
+                        '    <a class="delete" title="Delete" data-toggle="tooltip"><i class="fas fa-window-close"></i></a>' +
+                        '  </td>' +
+                        '</tr>'
+                    );
 
                 });
-                $('#listUser').append(
-                    '<div class="col-xl-12 mb-4">\n' +
-                    '              <div class="card border-left-primary shadow h-100 py-2">\n' +
-                    '                <div class="card-body">\n' +
-                    '                  <div class="row no-gutters align-items-center">\n' +
-                    '                    <div class="col mr-2">\n' +
-                    '                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">จำนวนสมาชิคทั้งหมด</div>\n' +
-                    '                      <div class="h5 mb-0 font-weight-bold text-gray-800">'+ (stateDo1 + stateDo2) +'</div>\n' +
-                    '                    </div>\n' +
-                    '                    <div class="col-auto">\n' +
-                    '                      <i class="fas fa-user-alt fa-2x text-gray-300"></i>\n' +
-                    '                    </div>\n' +
-                    '                  </div>\n' +
-                    '                </div>\n' +
-                    '              </div>\n' +
-                    '            </div>'+
-                    '<div class="col-xl-12 mb-4">\n' +
-                    '              <div class="card border-left-danger shadow h-100 py-2">\n' +
-                    '                <div class="card-body">\n' +
-                    '                  <div class="row no-gutters align-items-center">\n' +
-                    '                    <div class="col mr-2">\n' +
-                    '                      <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">จำนวนสมาชิค</div>\n' +
-                    '                      <div class="h5 mb-0 font-weight-bold text-gray-800">'+ (stateDo2) +'</div>\n' +
-                    '                    </div>\n' +
-                    '                    <div class="col-auto">\n' +
-                    '                      <i class="fas fa-user-alt fa-2x text-gray-300"></i>\n' +
-                    '                    </div>\n' +
-                    '                  </div>\n' +
-                    '                </div>\n' +
-                    '              </div>\n' +
-                    '            </div>'+
-                    '<div class="col-xl-12 mb-4">\n' +
-                    '              <div class="card border-left-warning shadow h-100 py-2">\n' +
-                    '                <div class="card-body">\n' +
-                    '                  <div class="row no-gutters align-items-center">\n' +
-                    '                    <div class="col mr-2">\n' +
-                    '                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">จำนวนเเอดมิน</div>\n' +
-                    '                      <div class="h5 mb-0 font-weight-bold text-gray-800">'+ (stateDo1) +'</div>\n' +
-                    '                    </div>\n' +
-                    '                    <div class="col-auto">\n' +
-                    '                      <i class="fas fa-user-alt fa-2x text-gray-300"></i>\n' +
-                    '                    </div>\n' +
-                    '                  </div>\n' +
-                    '                </div>\n' +
-                    '              </div>\n' +
-                    '            </div>'
-                );
                 $('label[ros="mem"]').click(function () {
                     var uids = $(this).attr('uid');
-                    connectNode(1,{typedata: 'setRoleUser', idUser: uids, permer: $(this).attr('value')}, (dataBack) => {
-
+                    connectNode({command: 'setRoleUser', idUser: uids, permer: $(this).attr('value')}, (dataBack) => {
                     });
                 });
             });
         }
     }
+    // showTableAll : function : หน้าเเสดงตารางทั้งหมด
+    function showTableAll() {
+        $("#mainBody").html(
+            '<!-- DataTales Example -->' +
+            '<div class="card shadow mb-4">' +
+            '    <div class="card-header py-3">' +
+            '        <nav>' +
+            '            <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">' +
+            '            </div>' +
+            '        </nav>' +
+            '    </div>' +
+            '    <div class="card-body">' +
+            '        <div class="table-responsive">' +
+            '            <div class="row">' +
+            '                <div class="col-md-12">' +
+            '                    <div class="tab-content" id="nav-tabContent">' +
+            '                    </div>' +
+            '                    <!-- End tab-content -->' +
+            '                </div>' +
+            '                <!-- End col-md-12 -->' +
+            '            </div>' +
+            '            <!-- End row -->' +
+            '        </div>' +
+            '        <!-- End table-responsive -->' +
+            '    </div>' +
+            '    <!-- End card-body -->' +
+            '</div>' +
+            '<!-- End DataTales Example -->'
+        )
+        // years : params : ปีที่ต้องการเอาข้อมูลมา
+        connectNode({command:'getDataAll',years: new Date().getFullYear()},(dataTable) => {
+            /*CE: Array(31)
+            0: {A: 1, B: 1, C: 1, D: 1, E: "กิจกรรมค่ายสำรวจ (Survey Camp)", …}
+            1: {A: 2, B: 1, C: 1, D: 2, E: "โครงการพัฒนาการดำเนินงา..
+            */
+            dataSave = dataTable;
+            counter = 0
+            alpha = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T"];
+            Object.entries(dataTable).forEach( ([keyName,dataListColumn]) => {
+                $('#nav-tab').append(
+                    '<a class="nav-item nav-link '+(counter+1 ?"active":"")+'" id="nav-'+keyName+'-tab" data-toggle="tab" href="#nav-'+keyName+'"' +
+                    '   role="tab" aria-controls="nav-'+keyName+'" aria-selected="true">'+keyName+'</a>'
+                );
+                $('#nav-tabContent').append(
+                    '<div class="tab-pane '+(counter+1 ? "active":"fade")+'" id="nav-'+keyName+'" role="tabpanel"' +
+                    '    aria-labelledby="nav-'+keyName+'-tab">' +
+                    '    <table class="table table-bordered table-bordered-v2" id="dataTable" width="100%"' +
+                    '        cellspacing="0">' +
+                    '        <thead>' +
+                    '            <tr>' +
+                    '                <th style="background: #1ccfcf;color: #000;">ที่</th>' +
+                    '                <th style="background: #1ccfcf;color: #000;">ประเด็นยุทธศาสตร์</th>' +
+                    '                <th style="background: #1ccfcf;color: #000;">ยุทธศาสตร์</th>' +
+                    '                <th style="background: #1ccfcf;color: #000;">กลยุทธ์</th>' +
+                    '                <th style="background: #1ccf49;color: #000;">โครงการ/กิจกรรมย่อย</th>' +
+                    '                <th style="background: #ff5722;color: #000;">ตัวชี้วัด</th>' +
+                    '                <th style="background: #ff5722;color: #000;">ค่าเป้าหมาย</th>' +
+                    '                <th style="background: #ff5722;color: #000;">ผู้รับผิดชอบ</th>' +
+                    '                <th style="background: #ffeb3b;color: #000;">งบประมาณ(ตามแผน)</th>' +
+                    '                <th style="background: #ffeb3b;color: #000;">โอนออก</th>' +
+                    '                <th style="background: #ffeb3b;color: #000;">โอนเข้า</th>' +
+                    '                <th>คงเหลือ(ตามแผน)</th>' +
+                    '                <th>ขออนุมัติใช้</th>' +
+                    '                <th>เบิกจ่าย</th>' +
+                    '                <th>คงเหลือจากหลักการ</th>' +
+                    '                <th>คงเหลือจากเบิกจ่ายจริง</th>' +
+                    '                <th>หมายเหตุ</th>' +
+                    '                <th>ผลการดำเนินงาน</th>' +
+                    '                <th>รายละเอียด</th>' +
+                    '                <th>ปัญหาอุปสรรค</th>' +
+                    '            </tr>' +
+                    '        </thead>' +
+                    '        <tbody id="tableExtract_'+keyName+'">' +
+                    '        </tbody>' +
+                    '    </table>' +
+                    '</div>'
+                )
+                index_table = 0;
+                dataListColumn.forEach( onelistData => {
+                    stringHtmlTable = "<tr index='"+index_table+"' nametable='"+keyName+"'>";
+                    alpha.forEach((charater) => {
+                        if(onelistData[charater]){
+                            stringHtmlTable += "<td>"+numberWithCommas(onelistData[charater])+"</td>";
+                        } else {
+                            stringHtmlTable += "<td></td>";
+                        }
+                    })
+                    $('#tableExtract_'+keyName).append(stringHtmlTable+"</tr>");
+                    index_table++;
+                });
+                counter++;
+            })
+            //addLinsener click tr
+            $('.table-bordered-v2 tr').click(function () {
+                //resetState
+                optionChange = {};
+                index_row = $(this).attr('index');
+                table_name = $(this).attr('nametable');
+                let row_tadata = dataSave[table_name][index_row];
+                if(row_tadata["Z_TYPE"] === "master") {
+                    $('#modal_box').modal('show');
+                    $('.modal-title').text(row_tadata["E"]);
+                    $('.modal-body').html(
+                        '<ul class="nav nav-tabs" id="myTab" role="tablist">' +
+                        '  <li class="nav-item">' +
+                        '    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">แก้ไข</a>' +
+                        '  </li>' +
+                        '  <li class="nav-item">' +
+                        '    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">โอนเงิน</a>' +
+                        '  </li>' +
+                        '  <li class="nav-item">' +
+                        '    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">เพิ่มโครงการย่อย</a>' +
+                        '  </li>' +
+                        '</ul>' +
+                        '<div class="tab-content" id="myTabContent">' +
+                        '  <div class="tab-pane fade px-2 show active" id="home" role="tabpanel" aria-labelledby="home-tab"> ' +
+                        '       <div class="input-group mt-2">' +
+                        '           <div class="input-group-prepend">' +
+                        '               <span class="input-group-text" id="">[ประเด็นยุทธศาสตร์,ยุทธศาสตร์,กลยุทธ์]</span>' +
+                        '           </div>' +
+                        '           <input type="text" class="form-control inputS" ch="B" value="'+ckundef(row_tadata["B"])+'">' +
+                        '           <input type="text" class="form-control inputS" ch="C" value="'+ckundef(row_tadata["C"])+'">' +
+                        '           <input type="text" class="form-control inputS" ch="D" value="'+ckundef(row_tadata["D"])+'">' +
+                        '       </div>' +
+                        '       <div class="input-group mt-2">' +
+                        '           <div class="input-group-prepend">' +
+                        '               <span class="input-group-text">ชือโครงการ</span>' +
+                        '           </div>' +
+                        '           <input type="text" class="form-control inputS" ch="E" value="'+ckundef(row_tadata["E"])+'">' +
+                        '       </div>' +
+                        '       <div class="input-group mt-2">' +
+                        '           <div class="input-group-prepend">' +
+                        '               <span class="input-group-text">[ตัวชี้วัด,ค่าเป้าหมาย,ผู้รับผิดชอบ]</span>' +
+                        '           </div>' +
+                        '           <input type="text" class="form-control inputS" ch="F" value="'+ckundef(row_tadata["F"])+'">' +
+                        '           <input type="text" class="form-control inputS" ch="G" value="'+ckundef(row_tadata["G"])+'">' +
+                        '           <input type="text" class="form-control inputS" ch="H" value="'+ckundef(row_tadata["H"])+'">' +
+                        '       </div>' +
+                        '       <div class="input-group mt-2">' +
+                        '           <div class="input-group-prepend">' +
+                        '               <span class="input-group-text" id="">[งบประมาณ(ตามแผน),ขออนุมัติใช้,เบิกจ่าย]</span>' +
+                        '           </div>' +
+                        '           <input type="text" class="form-control inputS" ch="I" value="'+ckundef(row_tadata["I"])+'">' +
+                        '           <input type="text" class="form-control inputS" ch="M" value="'+ckundef(row_tadata["M"])+'">' +
+                        '           <input type="text" class="form-control inputS" ch="N" value="'+ckundef(row_tadata["N"])+'">' +
+                        '       </div>' +
+                        '       <div class="input-group mt-2">' +
+                        '           <div class="input-group-prepend">' +
+                        '               <span class="input-group-text" id="">[หมายเหตุ,ผลการดำเนินงาน,รายละเอียด,ปัญหาอุปสรรค]</span>' +
+                        '           </div>' +
+                        '           <input type="text" class="form-control inputS" ch="Q" value="'+ckundef(row_tadata["Q"])+'">' +
+                        '           <input type="text" class="form-control inputS" ch="R" value="'+ckundef(row_tadata["R"])+'">' +
+                        '           <input type="text" class="form-control inputS" ch="S" value="'+ckundef(row_tadata["S"])+'">' +
+                        '           <input type="text" class="form-control inputS" ch="T" value="'+ckundef(row_tadata["T"])+'">' +
+                        '       </div>' +
+                        '       <button id="saveEdit" class="btn btn-success btn-block mt-2">บันทึก</button>' +
+                        '   </div>' +
+                        '  <div class="tab-pane fade px-2 " id="profile" role="tabpanel" aria-labelledby="profile-tab">ccccccccccccccccccccccccccccccccccccccccccccc</div>' +
+                        '  <div class="tab-pane fade px-2" id="contact" role="tabpanel" aria-labelledby="contact-tab">ddddddddddddddddddddddddddddddddddddddddddd</div>' +
+                        '</div>'
+                    );
+                    $('.inputS').change(function () {
+                        column = $(this).attr("ch");
+                        //ตรวจสอบว่าเปลี่ยน input ไปยังเทียบกับก่อนหน้า
+                        if( (dataSave[table_name][index_row][column] || "").toString() !== $(this).val() ){
+                            if(!optionChange[table_name]){
+                                optionChange[table_name] = {}
+                            }
+                            if(!optionChange[table_name][index_row]) {
+                                optionChange[table_name][index_row] = {};
+                            }
+                            optionChange[table_name][index_row][column] = $(this).val();
+                        } else {
+                            delete  optionChange[table_name][index_row][column];
+                        }
+                    });
+                    $('#saveEdit').click(function () {
+                        connectNode({command: "saveEdit", optionChange: optionChange}, respontBack => {
+                            alert("บันทึกสำเร็จ");
+                        });
+                    })
+
+
+                } else if (row_tadata[Z_TYPE] === "sub"){
+
+                }
+            });
+        });
+
+    }
 
 </script>
+<script src="vendor/chart.js/Chart.min.js"></script>
 
+<!-- Page level custom scripts -->
+<script src="js/demo/chart-area-demo.js"></script>
+<script src="js/demo/chart-pie-demo.js"></script>
+<script src="js/demo/chart-bar-demo.js"></script>
 
 </body>

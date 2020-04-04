@@ -89,21 +89,20 @@
     }
     
   </style>
-
-  <script type="text/javascript">
+<script type="text/javascript">
   $(document).ready(function(){
-	  $('[data-toggle="tooltip"]').tooltip();
-	  var actions = $("table td:last-child").html();
-	
+      $('[data-toggle="tooltip"]').tooltip();
+      var actions = $("table td:last-child").html();
+
     // Accept row on add button click
-	  $(document).on("click", ".add", function(){
-    
+      $(document).on("click", ".add", function(){
+
     });
-	  // Delete row on delete button click
-	  $(document).on("click", ".delete", function(){
+      // Delete row on delete button click
+      $(document).on("click", ".delete", function(){
       $(this).parents("tr").remove();
     });
-});
+  });
 </script>
 
 </head>
@@ -364,49 +363,6 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>eee@kkumail.com</td>
-                      <td>
-                        <select class="form-control" id="access">
-                          <option>Admins</option>
-                          <option>Editor</option>
-                          <option>Viewer</option>
-                          <option>Dean</option>
-                        </select>
-                      </td>
-                      <td>ee</td>
-                      <td>e</td>
-                      <td>
-                        <select class="form-control" id="ฝ่าย">
-                          <option>-</option>
-                          <option>ฝ่ายบริหาร</option>
-                          <option>ฝ่ายวิชาการ</option>
-                          <option>ฝ่ายแผน</option>
-                          <option>ฝ่ายวิจัย</option>
-                          <option>ฝ่ายคลังพัสดุ</option>
-                          <option>ฝ่ายปฏิบัติการ</option>
-                        </select>
-                      </td>
-                      <td>
-                        <select class="form-control" id="ฝ่าย">
-                          <option>-</option>
-                          <option>CE</option>
-                          <option>EE</option>
-                          <option>AE</option>
-                          <option>IE</option>
-                          <option>ME</option>
-                          <option>ENVI</option>
-                          <option>CHEM</option>
-                          <option>COE</option>
-                        </select>
-                      </td>
-                      <td>
-                        <button type="button" class="btnAccept">Accept</button>
-                      </td>
-                      <td>
-                        <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                      </td>
-                    </tr>
                     <tr>
                       <td>fff@kkumail.com</td>
                       <td>

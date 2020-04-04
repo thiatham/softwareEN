@@ -1,14 +1,4 @@
-const path = require('path');
-const serviceAccount = require("../secret/" + "sfen-e5e15-firebase-adminsdk-tv7og-bca50a08f8.json");
 const admin = require("firebase-admin");
-const functions = require('firebase-functions');
-
-admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount),
-    databaseURL: "https://sfen-e5e15.firebaseio.com"
-});
-
-var db = admin.database();
 
 module.exports = {
     ifAdmin: function (idToken, callback) {
@@ -30,7 +20,7 @@ module.exports = {
             callback(true)
         });
     },
-    getAlluser: function (callback) {
+    getDataUser: function (callback) {
         arraylist = [];
         admin.auth().listUsers(1000).then(function (listUsersResult) {
             listUsersResult.users.forEach(function (userRecord) {
@@ -74,15 +64,15 @@ module.exports = {
     //role permission
     setRoleper: function (userid, permer, callback) {
         if (parseInt(permer) === 0) {
-            admin.auth().setCustomUserClaims(userid, { admin: true }).then(() => {
+            admin.auth().setCustomUserClaims(userid, { admin: 0 }).then(() => {
                 return callback(true);
             });
         } else if (parseInt(permer) === 1) {
-            admin.auth().setCustomUserClaims(userid, { admin: false }).then(() => {
+            admin.auth().setCustomUserClaims(userid, { admin: 1 }).then(() => {
                 return callback(true);
             });
         } else if (parseInt(permer) === 2) {
-            admin.auth().setCustomUserClaims(userid, {}).then(() => {
+            admin.auth().setCustomUserClaims(userid, { admin: 2}).then(() => {
                 return callback(true);
             });
         }
@@ -91,6 +81,6 @@ module.exports = {
 
 //zone test mode
 if (typeof require != 'undefined' && require.main == module) {
-    admin.auth().setCustomUserClaims('7urOelcBbHTh9vm25RHXUUESiQi1', { admin: true }).then(() => {
+    admin.auth().setCustomUserClaims('7urOelcBbHTh9vm25RHXUUESiQi1', { admin: 0 }).then(() => {
     });
 }

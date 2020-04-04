@@ -1,27 +1,36 @@
 /*
 =============================================================================================
-var firebase_hostting:
+var upload_host:
 	true : use from firebase sever
 	false : use from local server
 ==============================================================================================
 */
-const firebase_hostting = false;
+const upload_host = false;
 const express = require('express');
 const path = require('path');
+const serviceAccount = require(path.join(__dirname + "/secret/" + "sfen-e5e15-firebase-adminsdk-tv7og-bca50a08f8.json"));
+const admin = require("firebase-admin");
+const functions = require('firebase-functions');
 const bodyParser = require('body-parser');
 const rateLimit = require("express-rate-limit");
 const ejsLint = require('ejs-lint');
-manageuser = require(path.join(__dirname + '/module/mangerUser.js'));
-const app = express();
+admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount),
+    databaseURL: "https://sfen-e5e15.firebaseio.com"
+});
 
+var db = admin.database();
+
+const manageUser = require(path.join(__dirname + '/module/manageUser.js'));
+const manageDatabase = require(path.join(__dirname + '/module/manageDatabase.js'));
+const app = express();
 const apiLimiter = rateLimit({
     windowMs: 1 * 60 * 1000, // หน่วย มิลิเซก
     max: 100, // limit each IP to 100 requests per windowMs
     message: "Too many accounts created from this IP, please try again after an hour"
 });
-
 app.use(bodyParser.json({
-    limit: '5md'
+    limit: '5mb'
 }));
 app.use(bodyParser.urlencoded({
     limit: '50mb',
@@ -31,43 +40,55 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
 app.get('/', apiLimiter, (req, res) => {
+    var xl = require('excel4node');
     rb = req.body;
 	res.render("loading");
 });
 
+app.get('/apitest/:years', apiLimiter,(req, res) => {
+    rb = req.params;
+    db.ref(rb.years+"/").once("value",function(snapshot) {
+        console.log(snapshot.val());
+    });
+});
+
 app.post('/adminAPI', apiLimiter,(req, res) => {
     rb = req.body;
-    manageuser.getDataformToken(rb.idtoken , userRecord => {
-        console.log(userRecord.customClaims.admin);
-        if (userRecord.customClaims.admin) {
-            console.log(rb.typedata);
-            switch (rb.typedata) {
-                case 'getAlluser':
-                    manageuser.getAlluser( (data) => {
+    manageUser.getDataformToken(rb.idtoken , userRecord => {
+        if (userRecord.customClaims.admin === 0) {
+            switch (rb.command) {
+                //permission command
+                case 'getDataUser':
+                    manageUser.getDataUser( (data) => {
                         res.json(data);
                     });
                     break;
-
                 case 'getRoleUser':
-                    manageuser.getRoleUser(rb.idUser, data => {
+                    manageUser.getRoleUser(rb.idUser, data => {
                         res.send(data);
                     });
                     break;
                 case 'setRoleUser':
-                    manageuser.setRoleper(rb.idUser, rb.permer, (roleboolean) => {
+                    manageUser.setRoleper(rb.idUser, rb.permer, (roleboolean) => {
                         res.json({ setP: roleboolean });
                     });
                     break;
-
+                //query ข้อมูลใน table ของทุกฝ่ายในตารางออกมา
+                case 'getDataAll':
+                    manageDatabase.getDataAll(rb.years,(dataQuery) => {
+                        res.json(dataQuery);
+                    });
+                    break;
             }
         }
     });
 });
+
 app.post('/membersAPI', apiLimiter, (req, res) => {
     rb = req.body;
-    switch (rb.typedata) {
+    switch (rb.command) {
         case 'createNewUser':
-            manageuser.createNewUser(
+            manageUser.createNewUser(
                 rb.email,
                 rb.phoneNumber,
                 rb.password,
@@ -80,13 +101,12 @@ app.post('/membersAPI', apiLimiter, (req, res) => {
 });
 app.post('/GetPages', apiLimiter, (req, res) => {
     rb = req.body;
-    switch (rb.typedata) {
+    switch (rb.command) {
         case 'dashboard':
-            manageuser.getDataformToken(rb.idtoken , userRecord => {
-                console.log(userRecord.customClaims.admin);
-                if (userRecord.customClaims.admin) {
+            manageUser.getDataformToken(rb.idtoken , userRecord => {
+                if (userRecord.customClaims.admin === 0) {
                     res.render("dashboard-admin");
-                } else if(userRecord.customClaims.admin === false){
+                } else if(userRecord.customClaims.admin === 1){
                     res.render("dashboard-user");
                 } else {
                     res.send("WHY ARE YOU HERE?")
@@ -130,7 +150,7 @@ START SERVER FROM SERVER FIREBASE
 COMMAND: firebase serve --only functions,hosting
 =============================================================================================
 */
-if (firebase_hostting) {
+if (upload_host) {
     const functions = require('firebase-functions');
     exports.app = functions.https.onRequest(app);
 } else {

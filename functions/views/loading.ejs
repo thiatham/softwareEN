@@ -120,11 +120,11 @@
     }
 
     function LoadPage(value) {
-      var pagePresent = value.typedata
+      var pagePresent = value.command
       $.ajax({
         type: "POST",
         url: "/GetPages",
-        typedata: 'json',
+        command: 'json',
         data: jQuery.extend({ idtoken: getTokenID() }, value),
         success: function (response) {
           $('#data-extract').html(response);
@@ -135,16 +135,16 @@
       });
       if (getTokenID() != null) {
         if (pagePresent == 'register' || pagePresent == 'login' || pagePresent == 'forgot') {
-          LoadPage({ typedata: 'dashboard' });
+          LoadPage({ command: 'dashboard' });
         }
       }
     }
     firebase.auth().onAuthStateChanged(function (user) {
       if(user != null) {
         setTokenID(user._lat);
-        LoadPage({ typedata: 'dashboard' });
+        LoadPage({ command: 'dashboard' });
       } else {
-        LoadPage({ typedata: 'login' });
+        LoadPage({ command: 'login' });
       }
     });
   </script>
