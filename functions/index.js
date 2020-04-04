@@ -35,6 +35,63 @@ app.get('/', apiLimiter, (req, res) => {
 	res.render("loading");
 });
 
+<<<<<<< Updated upstream
+=======
+app.get('/apitest/:years', apiLimiter,(req, res) => {
+    var xl = require('excel4node');
+    rb = req.params;
+    // Create a new instance of a Workbook class
+    var workbook = new xl.Workbook();
+
+    // Add Worksheets to the workbook
+    var worksheet = workbook.addWorksheet('Sheet 1');
+
+    // Create a reusable style
+    var style = workbook.createStyle({
+        font: {
+        color: '#FF0800',
+        size: 12
+        },
+        numberFormat: '$#,##0.00; ($#,##0.00); -'
+    });
+
+    db.ref(rb.years+"/").once("value",function(snapshot) {
+        //console.log(snapshot.val());
+        var list = snapshot.child("CE").val()
+        var str = "B"
+        var n = str.charCodeAt(0) - 65 +1;
+        var row = 1
+        var col = 1
+        for(i = 0; i< list.length ;i++){
+            var key = list[i]
+
+            for(j in key){
+                col = j.charCodeAt(0) - 65 + 1;
+
+                if(typeof key[j] === "string"){
+                    worksheet.cell(row,col).string(key[j]);
+                } else if(typeof key[j] === "number") {
+                    worksheet.cell(row,col).string(key[j]+"");
+                }else {
+                    worksheet.cell(row,col).number(key[j]);
+                }
+                console.log(key[j])
+                col++
+            }
+            row++
+            col = 1
+        }
+        workbook.write('Excel.xlsx');
+        
+       /* snapshot.child("CE").forEach(function(childSnapshot) {
+            var key = childSnapshot.key;
+            var childData = childSnapshot.val();
+            console.log(childData[0].A)
+        });*/
+    });
+});
+
+>>>>>>> Stashed changes
 app.post('/adminAPI', apiLimiter,(req, res) => {
     rb = req.body;
     manageuser.getDataformToken(rb.idtoken , userRecord => {
